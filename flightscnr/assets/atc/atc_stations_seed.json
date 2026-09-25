@@ -1,0 +1,991 @@
+{
+  "_comment": "Curated LiveATC mounts. Stream: https://d.liveatc.net/<mount>",
+  "_stream_base": "https://d.liveatc.net/",
+  "airports": {
+    "KATL": {
+      "name": "Atlanta Hartsfield-Jackson",
+      "feeds": [
+        {
+          "mount": "katl_twr",
+          "label": "Tower",
+          "kind": "twr"
+        },
+        {
+          "mount": "katl_dep_n",
+          "label": "Approach",
+          "kind": "app"
+        }
+      ]
+    },
+    "KJFK": {
+      "name": "New York JFK",
+      "feeds": [
+        {
+          "mount": "kjfk_twr",
+          "label": "Tower",
+          "kind": "twr"
+        },
+        {
+          "mount": "kjfk_dep",
+          "label": "Approach",
+          "kind": "app"
+        }
+      ]
+    },
+    "KLGA": {
+      "name": "New York LaGuardia",
+      "feeds": [
+        {
+          "mount": "klga_118_twr",
+          "label": "Tower",
+          "kind": "twr"
+        },
+        {
+          "mount": "klga_118_dep_135350",
+          "label": "Approach",
+          "kind": "app"
+        }
+      ]
+    },
+    "KEWR": {
+      "name": "Newark Liberty",
+      "feeds": [
+        {
+          "mount": "kewr_twr",
+          "label": "Tower",
+          "kind": "twr"
+        },
+        {
+          "mount": "kewr_dep",
+          "label": "Approach",
+          "kind": "app"
+        }
+      ]
+    },
+    "KLAX": {
+      "name": "Los Angeles Intl",
+      "feeds": [
+        {
+          "mount": "klax3",
+          "label": "Tower",
+          "kind": "twr"
+        },
+        {
+          "mount": "klax7",
+          "label": "Approach",
+          "kind": "app"
+        }
+      ]
+    },
+    "KORD": {
+      "name": "Chicago O'Hare",
+      "feeds": [
+        {
+          "mount": "kord1s1_twr_n",
+          "label": "KORD Towers (North Side)",
+          "kind": "twr"
+        },
+        {
+          "mount": "kord1s1_twr_s",
+          "label": "KORD Towers (South Side)",
+          "kind": "twr"
+        },
+        {
+          "mount": "kord1n2_twr_n",
+          "label": "KORD Tower (North)",
+          "kind": "twr"
+        },
+        {
+          "mount": "kord1n1_twr_120750",
+          "label": "KORD Tower (South)",
+          "kind": "twr"
+        },
+        {
+          "mount": "kord1n2_twr_ctr1",
+          "label": "KORD Tower (Center 9C-27C)",
+          "kind": "twr"
+        },
+        {
+          "mount": "kord1n2_twr_ctr2",
+          "label": "KORD Tower (Center 10C-28C/4R-22L)",
+          "kind": "twr"
+        },
+        {
+          "mount": "kord1n1_twr_132700",
+          "label": "KORD Tower (Center 10L/28R)",
+          "kind": "twr"
+        },
+        {
+          "mount": "kord1s1_gnd",
+          "label": "KORD Ground",
+          "kind": "gnd"
+        },
+        {
+          "mount": "kord1n2_gnd_in",
+          "label": "KORD Ground (Inbound)",
+          "kind": "gnd"
+        },
+        {
+          "mount": "kord1n2_gnd_out",
+          "label": "KORD Ground (Outbound)",
+          "kind": "gnd"
+        },
+        {
+          "mount": "kord1n2_gnd_meter",
+          "label": "KORD Ground/Metering",
+          "kind": "gnd"
+        },
+        {
+          "mount": "kord1s1_del_ramp",
+          "label": "KORD Del/Ramp/Metering",
+          "kind": "del"
+        },
+        {
+          "mount": "kord1n2_app_133625",
+          "label": "Chicago Approach (10R/28C)",
+          "kind": "app"
+        },
+        {
+          "mount": "kord1n2_app_119000",
+          "label": "Chicago Approach (27L/09R/10C Z)",
+          "kind": "app"
+        },
+        {
+          "mount": "kord1n2_app_124350",
+          "label": "Chicago Approach (27R/9L)",
+          "kind": "app"
+        },
+        {
+          "mount": "kord1n2_app_132175",
+          "label": "Chicago Approach (Arr/Dep Secondary)",
+          "kind": "app"
+        },
+        {
+          "mount": "kord1n2_app_125700",
+          "label": "Chicago Approach (NE Feeder)",
+          "kind": "app"
+        },
+        {
+          "mount": "kord1n2_app_135025",
+          "label": "Chicago Approach (NW Feeder)",
+          "kind": "app"
+        },
+        {
+          "mount": "kord1s1_app_118925",
+          "label": "Chicago Approach (SE Feeder)",
+          "kind": "app"
+        },
+        {
+          "mount": "kord1n2_app_135075",
+          "label": "Chicago Approach (SW Feeder)",
+          "kind": "app"
+        },
+        {
+          "mount": "kord1s1_dep_125000",
+          "label": "Chicago Departure (East)",
+          "kind": "dep"
+        },
+        {
+          "mount": "kord1n1_dep_125400",
+          "label": "KORD Dep (125.4 West)",
+          "kind": "dep"
+        },
+        {
+          "mount": "kord1s1_dep_126625",
+          "label": "KORD Dep (126.625 South)",
+          "kind": "dep"
+        },
+        {
+          "mount": "kord1n2_zau_cribb",
+          "label": "ZAU Chicago Center (CRIBB Low)",
+          "kind": "ctr"
+        },
+        {
+          "mount": "kord1s1_atis",
+          "label": "KORD ATIS",
+          "kind": "atis"
+        }
+      ]
+    },
+    "KDFW": {
+      "name": "Dallas-Fort Worth",
+      "feeds": [
+        {
+          "mount": "kdfw1_twr1_e",
+          "label": "Tower",
+          "kind": "twr"
+        },
+        {
+          "mount": "kafw1_app_n",
+          "label": "Approach",
+          "kind": "app"
+        }
+      ]
+    },
+    "KSFO": {
+      "name": "San Francisco Intl",
+      "feeds": [
+        {
+          "mount": "ksfo_twr",
+          "label": "KSFO Tower",
+          "kind": "twr"
+        },
+        {
+          "mount": "ksfo_twr2",
+          "label": "KSFO Tower/Ground",
+          "kind": "twr"
+        },
+        {
+          "mount": "ksfo_gnd",
+          "label": "KSFO Ground",
+          "kind": "gnd"
+        },
+        {
+          "mount": "ksfo_gnd_twr",
+          "label": "KSFO Ground/Tower",
+          "kind": "gnd"
+        },
+        {
+          "mount": "ksfo_gnd2",
+          "label": "KSFO Del/Gnd (Alt)/Twr (Alt)",
+          "kind": "gnd"
+        },
+        {
+          "mount": "ksfo_ramp",
+          "label": "KSFO Ramp",
+          "kind": "ramp"
+        },
+        {
+          "mount": "ksfo_dep1",
+          "label": "KSFO Dep 120.9/127.0",
+          "kind": "dep"
+        },
+        {
+          "mount": "ksfo_dep2",
+          "label": "KSFO Dep 135.1",
+          "kind": "dep"
+        },
+        {
+          "mount": "ksfo_app2",
+          "label": "KSFO NORCAL App 28L/R + BSR/MOD STARs",
+          "kind": "app"
+        },
+        {
+          "mount": "ksfo_app2_l",
+          "label": "KSFO NORCAL App 28L/R",
+          "kind": "app"
+        },
+        {
+          "mount": "ksfo_app2_r",
+          "label": "KSFO NORCAL BSR2/MOD2 Arrivals",
+          "kind": "app"
+        },
+        {
+          "mount": "koak_dep",
+          "label": "NORCAL Departure (KSFO/KOAK)",
+          "kind": "dep"
+        },
+        {
+          "mount": "zoa_sfo",
+          "label": "ZOA Oakland Center (35/40/41)",
+          "kind": "ctr"
+        },
+        {
+          "mount": "zoa_35",
+          "label": "ZOA Oakland Center (35)",
+          "kind": "ctr"
+        },
+        {
+          "mount": "ksfo_atis",
+          "label": "KSFO D-ATIS",
+          "kind": "atis"
+        },
+        {
+          "mount": "ksfo_co",
+          "label": "KSFO Company Channels",
+          "kind": "co"
+        }
+      ]
+    },
+    "KSEA": {
+      "name": "Seattle-Tacoma",
+      "feeds": [
+        {
+          "mount": "ksea3_twr_west",
+          "label": "Tower",
+          "kind": "twr"
+        },
+        {
+          "mount": "ksea3_app_se",
+          "label": "Approach",
+          "kind": "app"
+        }
+      ]
+    },
+    "KBOS": {
+      "name": "Boston Logan",
+      "feeds": [
+        {
+          "mount": "kbos1_twr",
+          "label": "Tower",
+          "kind": "twr"
+        },
+        {
+          "mount": "kbos1_app_south",
+          "label": "Approach",
+          "kind": "app"
+        }
+      ]
+    },
+    "KMIA": {
+      "name": "Miami Intl",
+      "feeds": [
+        {
+          "mount": "kmia3_twr",
+          "label": "Tower",
+          "kind": "twr"
+        },
+        {
+          "mount": "kmia3_app_133775",
+          "label": "Approach",
+          "kind": "app"
+        }
+      ]
+    },
+    "KPHX": {
+      "name": "Phoenix Sky Harbor",
+      "feeds": [
+        {
+          "mount": "kphx_twr_n",
+          "label": "Tower",
+          "kind": "twr"
+        },
+        {
+          "mount": "kphx_dep",
+          "label": "Approach",
+          "kind": "app"
+        }
+      ]
+    },
+    "KLAS": {
+      "name": "Las Vegas Harry Reid",
+      "feeds": [
+        {
+          "mount": "klas4_twr",
+          "label": "Tower",
+          "kind": "twr"
+        },
+        {
+          "mount": "klas4_app_ne",
+          "label": "Approach",
+          "kind": "app"
+        }
+      ]
+    },
+    "KIAH": {
+      "name": "Houston Bush",
+      "feeds": [
+        {
+          "mount": "kiah3_twr_9_27",
+          "label": "Tower",
+          "kind": "twr"
+        },
+        {
+          "mount": "kiah2_app_120050",
+          "label": "Approach",
+          "kind": "app"
+        }
+      ]
+    },
+    "KMCO": {
+      "name": "Orlando Intl",
+      "feeds": [
+        {
+          "mount": "korl_kmco_twr_west",
+          "label": "Tower",
+          "kind": "twr"
+        },
+        {
+          "mount": "korl_kmco_app_124800",
+          "label": "Approach",
+          "kind": "app"
+        }
+      ]
+    },
+    "KCLT": {
+      "name": "Charlotte Douglas",
+      "feeds": [
+        {
+          "mount": "kclt7_twr_118100",
+          "label": "Tower",
+          "kind": "twr"
+        },
+        {
+          "mount": "kclt7_dep_119000",
+          "label": "Approach",
+          "kind": "app"
+        }
+      ]
+    },
+    "KMSP": {
+      "name": "Minneapolis-St Paul",
+      "feeds": [
+        {
+          "mount": "kmsp3_twr_1735",
+          "label": "Tower",
+          "kind": "twr"
+        },
+        {
+          "mount": "kmsp3_app_n_low",
+          "label": "Approach",
+          "kind": "app"
+        }
+      ]
+    },
+    "KDTW": {
+      "name": "Detroit Metro",
+      "feeds": [
+        {
+          "mount": "kdtw_twr",
+          "label": "Tower",
+          "kind": "twr"
+        },
+        {
+          "mount": "kdtw_dep_132025",
+          "label": "Approach",
+          "kind": "app"
+        }
+      ]
+    },
+    "KPHL": {
+      "name": "Philadelphia Intl",
+      "feeds": [
+        {
+          "mount": "kphl_twr_east",
+          "label": "KPHL Tower (East)",
+          "kind": "twr"
+        },
+        {
+          "mount": "kphl_twr_west",
+          "label": "KPHL Tower (West)",
+          "kind": "twr"
+        },
+        {
+          "mount": "kphl_twr_both",
+          "label": "KPHL Tower (East/West)",
+          "kind": "twr"
+        },
+        {
+          "mount": "kphl_gnd",
+          "label": "KPHL Ground (Both)",
+          "kind": "gnd"
+        },
+        {
+          "mount": "kphl_ramp",
+          "label": "KPHL Ramp Control",
+          "kind": "ramp"
+        },
+        {
+          "mount": "kphl_del2",
+          "label": "KPHL Clearance Delivery",
+          "kind": "del"
+        },
+        {
+          "mount": "kphl_final",
+          "label": "KPHL App (Final)",
+          "kind": "app"
+        },
+        {
+          "mount": "kphl_app_128400",
+          "label": "KPHL App (N. Arrival) #1",
+          "kind": "app"
+        },
+        {
+          "mount": "kphl_n_arr",
+          "label": "KPHL App (N. Arrival) #2",
+          "kind": "app"
+        },
+        {
+          "mount": "kphl_s_arr",
+          "label": "KPHL App (S. Arrival) #1",
+          "kind": "app"
+        },
+        {
+          "mount": "kphl_app_133875",
+          "label": "KPHL App (S. Arrival) #2",
+          "kind": "app"
+        },
+        {
+          "mount": "kphl_app_119750",
+          "label": "KPHL App/Dep (South)",
+          "kind": "app"
+        },
+        {
+          "mount": "kphl_app",
+          "label": "KPHL Approach (North High)",
+          "kind": "app"
+        },
+        {
+          "mount": "kabe1_kphlapp_126850",
+          "label": "KPHL App (NW Pottstown Area)",
+          "kind": "app"
+        },
+        {
+          "mount": "kphl_dep",
+          "label": "KPHL Dep (N/S Dep)",
+          "kind": "dep"
+        },
+        {
+          "mount": "kphl_n_dep",
+          "label": "KPHL Departure (North)",
+          "kind": "dep"
+        },
+        {
+          "mount": "kphl_s_dep",
+          "label": "KPHL Departure (South)",
+          "kind": "dep"
+        },
+        {
+          "mount": "kphl_atis_arr",
+          "label": "KPHL ATIS (Arrival)",
+          "kind": "atis"
+        },
+        {
+          "mount": "kphl_atis_dep",
+          "label": "KPHL ATIS (Departure)",
+          "kind": "atis"
+        }
+      ]
+    },
+    "KSAN": {
+      "name": "San Diego Intl",
+      "feeds": [
+        {
+          "mount": "ksan1_twr",
+          "label": "Tower",
+          "kind": "twr"
+        },
+        {
+          "mount": "ksan_app_nw",
+          "label": "Approach",
+          "kind": "app"
+        }
+      ]
+    },
+    "KBWI": {
+      "name": "Baltimore-Washington",
+      "feeds": [
+        {
+          "mount": "kbwi_es_twr",
+          "label": "Tower",
+          "kind": "twr"
+        },
+        {
+          "mount": "kdmw2_app_125525",
+          "label": "Approach",
+          "kind": "app"
+        }
+      ]
+    },
+    "KDCA": {
+      "name": "Washington Reagan",
+      "feeds": [
+        {
+          "mount": "kdca1_twr",
+          "label": "Tower",
+          "kind": "twr"
+        },
+        {
+          "mount": "kdca",
+          "label": "Approach",
+          "kind": "app"
+        }
+      ]
+    },
+    "KIAD": {
+      "name": "Washington Dulles",
+      "feeds": [
+        {
+          "mount": "kiad1_twr_1c19c_120250",
+          "label": "Tower",
+          "kind": "twr"
+        },
+        {
+          "mount": "kmrb1_kiad_n_arr",
+          "label": "Approach",
+          "kind": "app"
+        }
+      ]
+    },
+    "KTPA": {
+      "name": "Tampa Intl",
+      "feeds": [
+        {
+          "mount": "ktpa2",
+          "label": "Tower",
+          "kind": "twr"
+        },
+        {
+          "mount": "kpie1_app_118800",
+          "label": "Approach",
+          "kind": "app"
+        }
+      ]
+    },
+    "KPDX": {
+      "name": "Portland Intl",
+      "feeds": [
+        {
+          "mount": "kpdx3_twr",
+          "label": "Tower",
+          "kind": "twr"
+        },
+        {
+          "mount": "kpdx_app_124350",
+          "label": "Approach",
+          "kind": "app"
+        }
+      ]
+    },
+    "KSLC": {
+      "name": "Salt Lake City",
+      "feeds": [
+        {
+          "mount": "kslc1_twr",
+          "label": "Tower",
+          "kind": "twr"
+        },
+        {
+          "mount": "kslc1_app1",
+          "label": "Approach",
+          "kind": "app"
+        }
+      ]
+    },
+    "KMDW": {
+      "name": "Chicago Midway",
+      "feeds": [
+        {
+          "mount": "kmdw_1",
+          "label": "Tower",
+          "kind": "twr"
+        },
+        {
+          "mount": "kmdw_2",
+          "label": "Approach",
+          "kind": "app"
+        }
+      ]
+    },
+    "KOAK": {
+      "name": "Metropolitan Oakland Intl",
+      "feeds": [
+        {
+          "mount": "koak",
+          "label": "KOAK Del/Gnd/Twr",
+          "kind": "twr"
+        },
+        {
+          "mount": "koak_app",
+          "label": "NORCAL Approach (KOAK)",
+          "kind": "app"
+        },
+        {
+          "mount": "koak_dep",
+          "label": "NORCAL Departure (KSFO/KOAK)",
+          "kind": "dep"
+        }
+      ]
+    },
+    "KSJC": {
+      "name": "Norman Y. Mineta San Jose Intl",
+      "feeds": [
+        {
+          "mount": "ksjc6_twr",
+          "label": "KSJC Tower #1",
+          "kind": "twr"
+        },
+        {
+          "mount": "ksjc_twr",
+          "label": "KSJC Tower (Feed 1)",
+          "kind": "twr"
+        },
+        {
+          "mount": "ksjc_twr2",
+          "label": "KSJC Tower #2",
+          "kind": "twr"
+        },
+        {
+          "mount": "ksjc6_gnd",
+          "label": "KSJC Ground",
+          "kind": "gnd"
+        },
+        {
+          "mount": "ksjc_dep",
+          "label": "KSJC NORCAL Departure",
+          "kind": "dep"
+        },
+        {
+          "mount": "ksjc_app",
+          "label": "KSJC NORCAL Approach #1",
+          "kind": "app"
+        },
+        {
+          "mount": "ksjc_atis",
+          "label": "KSJC D-ATIS",
+          "kind": "atis"
+        }
+      ]
+    },
+    "KAUS": {
+      "name": "Austin-Bergstrom",
+      "feeds": [
+        {
+          "mount": "kaus3_twr",
+          "label": "Tower",
+          "kind": "twr"
+        },
+        {
+          "mount": "kaus3_app_dep",
+          "label": "Approach",
+          "kind": "app"
+        }
+      ]
+    },
+    "KBNA": {
+      "name": "Nashville Intl",
+      "feeds": [
+        {
+          "mount": "kbna_twr",
+          "label": "Tower",
+          "kind": "twr"
+        },
+        {
+          "mount": "kbna_app",
+          "label": "Approach",
+          "kind": "app"
+        }
+      ]
+    },
+    "KMEM": {
+      "name": "Memphis Intl",
+      "feeds": [
+        {
+          "mount": "kmem4_twr_118300",
+          "label": "Tower",
+          "kind": "twr"
+        },
+        {
+          "mount": "kmem4_app_119100",
+          "label": "Approach",
+          "kind": "app"
+        }
+      ]
+    },
+    "KRDU": {
+      "name": "Raleigh-Durham",
+      "feeds": [
+        {
+          "mount": "krdu_twr",
+          "label": "Tower",
+          "kind": "twr"
+        },
+        {
+          "mount": "krdu_app",
+          "label": "Approach",
+          "kind": "app"
+        }
+      ]
+    },
+    "KHPN": {
+      "name": "Westchester County",
+      "feeds": [
+        {
+          "mount": "khpn_twr",
+          "label": "Tower",
+          "kind": "twr"
+        },
+        {
+          "mount": "khpn2",
+          "label": "Approach",
+          "kind": "app"
+        }
+      ]
+    },
+    "KTEB": {
+      "name": "Teterboro",
+      "feeds": [
+        {
+          "mount": "kteb_es_twr_r",
+          "label": "Tower",
+          "kind": "twr"
+        }
+      ]
+    },
+    "KISP": {
+      "name": "Long Island MacArthur",
+      "feeds": [
+        {
+          "mount": "kisp_gnd_twr",
+          "label": "Tower",
+          "kind": "twr"
+        },
+        {
+          "mount": "kisp2",
+          "label": "Approach",
+          "kind": "app"
+        }
+      ]
+    },
+    "KHWD": {
+      "name": "Hayward Executive",
+      "feeds": [
+        {
+          "mount": "khwd",
+          "label": "KHWD Ground/Tower",
+          "kind": "twr"
+        }
+      ]
+    },
+    "KSQL": {
+      "name": "San Carlos",
+      "feeds": [
+        {
+          "mount": "ksql2",
+          "label": "KSQL Ground/Tower",
+          "kind": "twr"
+        }
+      ]
+    },
+    "KRHV": {
+      "name": "Reid-Hillview",
+      "feeds": [
+        {
+          "mount": "krhv1",
+          "label": "KRHV Ground/Tower",
+          "kind": "twr"
+        }
+      ]
+    },
+    "KLVK": {
+      "name": "Livermore",
+      "feeds": [
+        {
+          "mount": "klvk2",
+          "label": "KLVK Ground/Tower",
+          "kind": "twr"
+        }
+      ]
+    },
+    "KPAO": {
+      "name": "Palo Alto",
+      "feeds": [
+        {
+          "mount": "kpao",
+          "label": "KPAO Ground/Tower",
+          "kind": "twr"
+        }
+      ]
+    },
+    "KNUQ": {
+      "name": "Moffett Federal",
+      "feeds": [
+        {
+          "mount": "knuq",
+          "label": "KNUQ Tower",
+          "kind": "twr"
+        }
+      ]
+    },
+    "YSSY": {
+      "name": "Sydney Kingsford Smith",
+      "feeds": [
+        {
+          "mount": "yssy1_twr",
+          "label": "YSSY Tower (Both)",
+          "kind": "twr"
+        },
+        {
+          "mount": "yssy1_twr1",
+          "label": "YSSY Tower (Rwys 16R/34L,7/25)",
+          "kind": "twr"
+        },
+        {
+          "mount": "yssy1_twr2",
+          "label": "YSSY Tower (Rwy 16L/34R)",
+          "kind": "twr"
+        },
+        {
+          "mount": "yssy1_del_gnd",
+          "label": "YSSY Del/Gnd",
+          "kind": "gnd"
+        },
+        {
+          "mount": "yssy1_app_n",
+          "label": "YSSY Approach (North/East)",
+          "kind": "app"
+        },
+        {
+          "mount": "yssy1_app_s",
+          "label": "YSSY Approach (South)",
+          "kind": "app"
+        },
+        {
+          "mount": "yssy1_dir_e",
+          "label": "YSSY Director (East)",
+          "kind": "app"
+        },
+        {
+          "mount": "yssy1_dep_ne",
+          "label": "YSSY Departure (North/East)",
+          "kind": "dep"
+        },
+        {
+          "mount": "yssy1_dep_s",
+          "label": "YSSY Departure (South/West)",
+          "kind": "dep"
+        },
+        {
+          "mount": "yssy1_ctr_s",
+          "label": "YSSY Center (South/West)",
+          "kind": "ctr"
+        },
+        {
+          "mount": "yssy1_ctr_124625",
+          "label": "Brisbane Center (124.625/YSSY)",
+          "kind": "ctr"
+        },
+        {
+          "mount": "yssy1_ctr_124950",
+          "label": "Brisbane Center (124.95/YSSY)",
+          "kind": "ctr"
+        },
+        {
+          "mount": "yssy1_ctr_125000",
+          "label": "Brisbane Center (125.0/YSSY)",
+          "kind": "ctr"
+        },
+        {
+          "mount": "yssy1_ctr_128600",
+          "label": "Brisbane Center (128.6/YSSY)",
+          "kind": "ctr"
+        },
+        {
+          "mount": "yssy1_atis1",
+          "label": "YSSY ATIS",
+          "kind": "atis"
+        }
+      ]
+    },
+    "ESSB": {
+      "name": "Stockholm Bromma",
+      "feeds": [
+        {
+          "mount": "essb2",
+          "label": "ESSB Tower",
+          "kind": "twr"
+        }
+      ]
+    }
+  }
+}

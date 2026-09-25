@@ -1,0 +1,61 @@
+# Secrets
+.env
+.env.local
+.env.production
+config.h
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+.pytest_cache/
+flightscnr-venv/
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.code-workspace
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# API / feed caches
+.fr24/
+
+# Runtime data & downloaded databases
+flightscnr/.cache/
+flightscnr/airports.json
+flightscnr/runways.json
+flightscnr/cities.json
+flightscnr/airlines.json
+flightscnr/icao_types.json
+flightscnr/faa_airports.json
+flightscnr/airport_frequencies.json
+flightscnr/close.txt
+flightscnr/farthest.txt
+flightscnr/tracked_flight.json
+
+# Extracted assets (use logo.zip in repo)
+logo/
+logo2/
+combined_logos/
+logo-diff/
+# Root-level extracted icons only — keep flightscnr/assets/aircraft/icons/ in git
+/icons/
+flightscnr/icons
+# Installer stamp (icons themselves are tracked)
+flightscnr/assets/aircraft/icons/.installed
+flightscnr/assets/weather/png/.installed
+# Local Pi settings persisted at runtime
+round_touch_settings.json

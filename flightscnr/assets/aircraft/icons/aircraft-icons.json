@@ -1,0 +1,205 @@
+{
+  "description": "Aircraft icon mapping - maps aircraft categories to icon filenames",
+  "note": "Replace placeholder PNG files with actual transparent aircraft icons (recommended size: 64x64 or 128x128)",
+
+  "icons": {
+    "large-jet-4": {
+      "file": "large-jet-4.png",
+      "description": "4-engine wide-body aircraft (A380, B747)",
+      "examples": ["A380", "A388", "B744", "B748", "A340", "A346"]
+    },
+    "large-jet-2": {
+      "file": "large-jet-2.png",
+      "description": "2-engine wide-body aircraft (B777, A350, B787)",
+      "examples": ["A330", "A350", "B777", "B787", "B767", "A300", "DC10", "MD11"]
+    },
+    "medium-jet": {
+      "file": "medium-jet.png",
+      "description": "Narrow-body commercial jets (A320, B737, 737 MAX)",
+      "examples": ["A320", "A321", "A319", "B737", "B738", "B739", "B38M", "B757", "MD80"]
+    },
+    "regional-jet": {
+      "file": "regional-jet.png",
+      "description": "Regional jets with T-tail (E190, CRJ)",
+      "examples": ["E170", "E175", "E190", "E195", "CRJ7", "CRJ9", "ARJ21"]
+    },
+    "business-jet": {
+      "file": "business-jet.png",
+      "description": "Business/Private jets",
+      "examples": ["G650", "GLEX", "GLF5", "C680", "CL60", "FA8X", "LJ75", "SF50"]
+    },
+    "turboprop": {
+      "file": "turboprop.png",
+      "description": "Turboprop aircraft with visible propellers",
+      "examples": ["AT72", "AT76", "DH8D", "Q400", "SF34", "B350"]
+    },
+    "small-prop-single": {
+      "file": "small-prop-single.png",
+      "description": "Small single-engine propeller aircraft",
+      "examples": ["C172", "C182", "C206", "T206", "PA28", "SR22", "DA40", "RV8"]
+    },
+    "small-prop-twin": {
+      "file": "small-prop-twin.png",
+      "description": "Small twin-engine propeller aircraft",
+      "examples": ["PA34", "DA42", "BE58", "C310"]
+    },
+    "helicopter": {
+      "file": "helicopter.png",
+      "description": "Civilian helicopters",
+      "examples": ["H145", "H125", "EC35", "B412", "S76", "R44"]
+    },
+    "military-helicopter": {
+      "file": "military-helicopter.png",
+      "description": "Military helicopters",
+      "examples": ["H60", "H64", "CH47", "MI24", "AH1", "S70"]
+    },
+    "military-fighter": {
+      "file": "military-fighter.png",
+      "description": "Military fighter jets",
+      "examples": ["F16", "F15", "F18", "F22", "F35", "EUFI", "RFAL"]
+    },
+    "military-transport": {
+      "file": "military-transport.png",
+      "description": "Military transport/cargo aircraft",
+      "examples": ["C17", "C130", "C5", "KC135", "E3","E6"]
+    },
+    "cargo": {
+      "file": "cargo.png",
+      "description": "Cargo/Freighter aircraft",
+      "examples": ["B74F", "B77F", "A30F", "MD11F"]
+    },
+    "balloon": {
+      "file": "balloon.png",
+      "description": "Hot-air / gas balloons",
+      "examples": ["BALL","L29","Q8","DJI"]
+    },
+    "airship": {
+      "file": "airship.png",
+      "description": "Airships / blimps / dirigibles",
+      "examples": ["SHIP","L29","Q8","DJI"]
+    },
+    "drone": {
+      "file": "drone.png",
+      "description": "Non-military Drones / UAVs",
+      "examples": ["JAS4","Q8","DJI"]
+    },
+    "military-drone": {
+      "file": "military-drone.png",
+      "description": "Military drones / UAVs",
+      "examples": ["Q9","BTB2","DRON"]
+    },
+    "fighter": {
+      "file": "fighter.png",
+      "description": "Fighter jets (custom icon)",
+      "examples": []
+    },
+    "glider": {
+      "file": "glider.png",
+      "description": "Gliders / sailplanes",
+      "examples": ["ULAC","SF25","GLIM","GLID","DIMO","AS16"]
+    },
+    "ground_veh": {
+      "file": "ground_veh.png",
+      "description": "Airport ground vehicles (tugs, service vans, ARFF, follow-me)",
+      "examples": ["GRND", "GVEH", "SERV", "TUG", "FLME", "FIRE"]
+    },
+    "unknown": {
+      "file": "unknown.png",
+      "description": "Unknown or unidentified aircraft type",
+      "examples": []
+    }
+  },
+
+  "typeCodeMapping": {
+    "_comment": "Maps ICAO type codes to icon categories",
+
+    "large-jet-4": ["A380", "A388", "B744", "B748", "B74S", "A340", "A342", "A343", "A345", "A346"],
+
+    "large-jet-2": ["A330", "A332", "A333", "A338", "A339", "A350", "A359", "A35K",
+                   "B777", "B772", "B773", "B77L", "B77W", "B787", "B788", "B789", "B78X",
+                   "B767", "B762", "B763", "B764", "A300", "A306", "A310", "DC10", "MD10", "MD11"],
+
+    "medium-jet": ["A320", "A321", "A319", "A318", "A20N", "A21N", "A19N",
+                  "B737", "B738", "B739", "B733", "B734", "B735", "B736", "B38M", "B39M", "B3XM",
+                  "B757", "B752", "B753", "MD80", "MD81", "MD82", "MD83", "MD87", "MD88", "MD90",
+                  "B712", "B721", "B722", "DC9", "DC93", "DC94", "DC95"],
+
+    "regional-jet": ["E170", "E175", "E190", "E195", "E75L", "E75S", "E290", "E295",
+                    "CRJ1", "CRJ2", "CRJ7", "CRJ9", "CRJX", "CRJ",
+                    "ARJ2", "C919", "BCS1", "BCS3", "E135", "E145"],
+
+    "business-jet": ["C500", "C501", "C510", "C525", "C550", "C560", "C56X", "C680", "C68A", "C700", "C750",
+                    "C25A", "C25B", "C25C", "C25M", "J328","GA7C","GA8C","E45x",
+                    "CL30", "CL35", "CL60", "GL5T", "GL7T", "GLEX","C650","LJ35",
+                    "G150", "G200", "G280", "GLF2", "GLF3", "GLF4", "GLF5", "GLF6", "G500", "G550", "G650",
+                    "F900", "F2TH", "FA50", "FA7X", "FA8X", "ASTR", "GALX",
+                    "E35L", "E50P", "E55P", "E545", "E550","GA5C","C551",
+                    "LJ23", "LJ24", "LJ25", "LJ31", "LJ35", "LJ40", "LJ45", "LJ55", "LJ60", "LJ70", "LJ75",
+                    "H25A", "H25B", "H25C", "HA4T", "HDJT","c55b",
+                    "BE40", "BE4W", "PRM1", "PC24", "EA50", "EVOT","GA6C","SF50"],
+
+    "turboprop": ["AT43", "AT45", "AT72", "AT73", "AT75", "AT76",
+                 "DH8A", "DH8B", "DH8C", "DH8D", "DHC8",
+                 "SF34", "SB20", "JS41", "L410","P750",
+                 "B350", "BE30", "P180", "P46T",
+                 "AN24", "AN26", "IL18", "F27", "F50", "F70"],
+
+    "small-prop-single": ["C150", "C152", "C162", "C172", "C177", "C182", "C185", "C206", "C207", "C210","EV97",
+                         "C72", "C72R", "C82", "C82R", "C82S", "C82T","TBM7","TBM8", "TBM9","LA4","FDF2","PTS1",
+                         "T182", "T206", "T207", "T210","CC19","BEA5","VL3","T34P","LXR","ST75","AA5","COL3","G115",
+                         "PA18", "PA22", "PA24", "PA28", "PA32", "PA46","DHC2","M7","BT36","CH7B","EPIC","AC11",
+                         "SR20", "SR22", "DA20", "DA40", "M20P", "M20T", "BE33", "BE35", "BE36","TEX2","SLG4","YK52",
+                         "YK50","P32R","C120","SLG2","D11","E200","CP10","BDOG","EFOX","GX","R300",
+                         "C42","SKRA","SKAR","BE23","P32T","AP22","P28S","P208","HR20","DR40",
+                         "BREZ","BR23","C77R","BL8","BR23","M700","RELI","LGEZ","TB20","T18","AA1",
+                         "LAKR","HUSK","NG5","COZY","CJ6","M5","BE24","BL17","BE19","GA8","RS21",
+                         "AP32","EAGL","SREY","GLST","SIRA","A5","CRUZ","GC1","P210","JAB4","LNC2",
+                         "SHRK","TRIN","PNR4","TAMP","EVSS",
+                         "RV6", "RV7", "RV8", "RV9", "RV10", "RV12", "RV14","DA50","P28A","PC12","C180","COL4","P28B",
+                         "ERCO","AT5T","TBM9","PA38","P28R","S22T","K100","CH7A","TB21","CC11"],
+
+    "small-prop-twin": ["PA30", "PA31", "PA34", "PA44", "PA60","BE50","C425","B350","PA27","PA23","C303",
+                       "DA42", "DA62", "BE55", "BE58", "BE60", "BE76", "BE95","BE9L","E120",
+                       "C310", "C320", "C340", "C401", "C402", "C411", "C414", "C421","C208",
+                       "B58T","PAY2","P337","C441","D328","AC50","D228","DHC6","AT46",
+                       "P68","BE20","MU2","BE18","TRIM","B29","P06T","PAT4","SH36","BE99","V10","S2T"],
+
+    "helicopter": ["H125", "H130", "H135", "H145", "H155", "H160", "H175", "H215", "H225",
+                  "EC20", "EC25", "EC30", "EC35", "EC45", "EC55", "EC75",
+                  "AS50", "AS55", "AS65","G2CA","H269",
+                  "B06", "B06T", "B105", "B212", "B214", "B222", "B230", "B407", "B412", "B429", "B430", "B505",
+                  "S55", "S58", "S61", "S64", "S76", "S92",
+                  "R22", "R44", "R66",
+                  "A109", "A119", "A139", "A149", "A169", "AW09", "AW39", "AW69", "AW139", "AW169", "AW189","MM24"],
+
+    "military-helicopter": ["H60", "H64", "H47", "UH1", "UH60", "MH60", "AH1", "AH64",
+                           "CH46", "CH47", "CH53", "MH47", "MH53", "OH58", "TH67",
+                           "AS32", "S65", "S70", "AW101", "NH90","EH10",
+                           "MI8", "MI17", "MI24", "MI26", "MI28", "KA27", "KA32", "KA50", "KA52"],
+
+    "military-fighter": ["F14", "F15", "F16", "F18", "F22", "F35", "F100", "F104", "F111", "F117",
+                        "EUFI", "RFAL", "HAWK", "TORN", "HURR", "SPIT","A4",
+                        "SU27", "SU30", "SU35", "MIG29", "MIG31","AJET",
+                        "JAS39", "DRAV", "M2K", "M346","T38","M339","KFIR","MRF1","HUNT","F18S","L39"],
+
+    "military-transport": ["C17", "C130", "C5", "C2", "C12", "C21", "C26", "C27", "C37", "C40",
+                          "KC10", "KC35", "KC46", "KC13",
+                          "E3", "E4", "E6", "E8","ATLA",
+                          "P3", "P8", "RC35", "V22", "CV22", "MV22",
+                          "A10", "AV8B", "T45", "T6","U2","B17"],
+
+    "cargo": ["B74F", "B744F", "B748F", "B77F", "B772F", "B77LF",
+             "A30F", "A306F", "MD10F", "MD11F",
+             "B762F", "B763F", "A332F","A400",
+             "AN12", "AN22", "AN124", "AN225", "IL76"],
+
+    "balloon": ["BALL"],
+    "airship": ["SHIP"],
+    "drone": ["JAS4","VFHC"],
+    "military-drone": ["Q9","BTB2","DRON"],
+    "fighter": [],
+    "glider": ["ULAC","SF25","GLIM","GLID","DIMO","AS16"],
+    "ground_veh": ["GRND", "GND", "GVEH", "VEH", "SERV", "VAN", "BUS", "TRUCK", "TRUK",
+                   "TUG", "TOW", "FUEL", "FLME", "FIRE", "AMB", "LIFT", "UPLT", "CAR", "SUV"]
+  }
+}

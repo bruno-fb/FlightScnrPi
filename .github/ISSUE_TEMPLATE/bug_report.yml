@@ -1,0 +1,75 @@
+name: 🐛 Bug report
+description: Something is broken or behaving incorrectly
+title: "[Bug]: "
+labels: ["kind:bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug. The more detail you can share (environment, repro steps, and any code/log pointers), the faster it can be fixed.
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Hardware, OS, display, and FlightScnr_Pi version.
+      placeholder: |
+        - Raspberry Pi 4B, Raspberry Pi OS Bookworm
+        - Waveshare 4inch DSI LCD (C)
+        - FlightScnr_Pi version: 2026.7.21.3
+      value: |
+        - Raspberry Pi model / RAM:
+        - OS (e.g. Bookworm, desktop/Wayland/labwc):
+        - Display / touch panel:
+        - FlightScnr_Pi version:
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Exact steps someone else can follow to hit the bug.
+      placeholder: |
+        1. …
+        2. …
+        3. …
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What you expected to happen.
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: What happened instead (include error output if any).
+    validations:
+      required: true
+
+  - type: textarea
+    id: root_cause
+    attributes:
+      label: Root cause (optional)
+      description: If you already traced it, note the file/function and what looks wrong. Code snippets welcome.
+      render: markdown
+
+  - type: textarea
+    id: suggested_fix
+    attributes:
+      label: Suggested fix (optional)
+      description: Ideas for a fix, or a workaround that worked for you.
+      render: markdown
+
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Diagnostics / logs (optional)
+      description: Prefer Portal → System → Download diagnostics, then attach the zip. Or paste relevant `journalctl` / portal settings.
+      render: shell

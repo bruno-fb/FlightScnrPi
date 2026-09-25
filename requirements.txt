@@ -1,0 +1,32 @@
+# FlightRadar24 official Python SDK
+fr24>=0.3.0
+
+# HTTP client (dependency of fr24, but listed explicitly)
+httpx[http2]
+h2>=4.0
+
+# Environment variable management
+python-dotenv>=1.0.0
+
+# Web interface
+flask
+folium
+
+# Protobuf (dependency of fr24)
+protobuf
+grpcio
+
+# Maps, images, HTTP utilities
+Pillow
+requests
+curl-cffi>=0.6.0
+qrcode[pil]>=7.4
+
+# AIS vessel feed (aisstream.io WebSocket)
+websockets>=12.0
+
+# Round touch display (1080×1080 FlightScnr UI)
+pygame>=2.5.0
+
+# Lofi playlist album art (ID3 APIC extraction for the web portal)
+mutagen>=1.46

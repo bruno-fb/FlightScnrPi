@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>FlightScnr — Wi-Fi setup</title>
+    <style>
+        :root {
+            --bg: #0b1a0e;
+            --card: #122418;
+            --text: #e8f5e9;
+            --muted: #8aa892;
+            --accent: #3ddc84;
+            --danger: #ff6b6b;
+            --border: #1e3a28;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Segoe UI", system-ui, sans-serif;
+            background: radial-gradient(1200px 600px at 50% -10%, #1a3d28, var(--bg));
+            color: var(--text);
+            padding: 1.25rem;
+        }
+        main {
+            max-width: 420px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 1.45rem;
+            font-weight: 650;
+            margin: 0 0 .35rem;
+            letter-spacing: -.02em;
+        }
+        .lead {
+            color: var(--muted);
+            font-size: .95rem;
+            margin: 0 0 1.25rem;
+            line-height: 1.45;
+        }
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.1rem 1.15rem 1.25rem;
+        }
+        label {
+            display: block;
+            font-size: .8rem;
+            color: var(--muted);
+            margin: .85rem 0 .35rem;
+        }
+        select, input[type=password], input[type=text] {
+            width: 100%;
+            padding: .7rem .75rem;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: #0d1f12;
+            color: var(--text);
+            font-size: 1rem;
+        }
+        .row {
+            display: flex;
+            gap: .5rem;
+            align-items: stretch;
+        }
+        .row select { flex: 1; }
+        button {
+            appearance: none;
+            border: 0;
+            border-radius: 10px;
+            padding: .75rem 1rem;
+            font-size: .95rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .btn-primary {
+            width: 100%;
+            margin-top: 1.1rem;
+            background: var(--accent);
+            color: #06210f;
+        }
+        .btn-primary:disabled {
+            opacity: .55;
+            cursor: wait;
+        }
+        .btn-secondary {
+            width: 100%;
+            margin-top: .7rem;
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+        .btn-secondary:disabled {
+            opacity: .55;
+            cursor: wait;
+        }
+        .btn-secondary.hidden { display: none; }
+        .btn-ghost {
+            background: transparent;
+            color: var(--muted);
+            border: 1px solid var(--border);
+            padding: .65rem .8rem;
+            white-space: nowrap;
+        }
+        .status {
+            margin-top: .9rem;
+            font-size: .9rem;
+            min-height: 1.3em;
+        }
+        .status.err { color: var(--danger); }
+        .status.ok { color: var(--accent); }
+        .hint {
+            margin-top: 1rem;
+            font-size: .8rem;
+            color: var(--muted);
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <h1>Connect FlightScnr to Wi-Fi</h1>
+    <p class="lead">Choose your home network. The setup hotspot will turn off after a successful connection.</p>
+    <div class="card">
+        <label for="ssid-select">Network</label>
+        <div class="row">
+            <select id="ssid-select"></select>
+            <button type="button" class="btn-ghost" id="btn-rescan">Scan</button>
+        </div>
+        <label for="ssid-manual">Or type SSID</label>
+        <input id="ssid-manual" type="text" autocomplete="off" placeholder="Optional if listed above">
+        <label for="password">Password</label>
+        <input id="password" type="password" autocomplete="current-password" placeholder="Leave blank if open">
+        <button type="button" class="btn-primary" id="btn-connect">Connect</button>
+        <button type="button" class="btn-secondary hidden" id="btn-try-saved">Try saved Wi‑Fi</button>
+        <div class="status" id="status"></div>
+        <p class="hint">Stay on this page until you see success. The round display will leave setup mode automatically. If your home network is already saved, use Try saved Wi‑Fi instead.</p>
+    </div>
+</main>
+<script>
+const $ = (id) => document.getElementById(id);
+const statusEl = $("status");
+
+function setStatus(msg, kind) {
+    statusEl.textContent = msg || "";
+    statusEl.className = "status" + (kind ? " " + kind : "");
+}
+
+async function refreshStatus() {
+    try {
+        const r = await fetch("/wifi/status.json");
+        const data = await r.json();
+        const btn = $("btn-try-saved");
+        if (data.has_saved) btn.classList.remove("hidden");
+        else btn.classList.add("hidden");
+        if (data.client_connected) setStatus("Connected — leaving setup…", "ok");
+    } catch (e) { /* ignore */ }
+}
+
+async function loadNetworks(rescan) {
+    setStatus(rescan ? "Scanning…" : "Loading networks…");
+    try {
+        const r = await fetch("/wifi/networks.json?rescan=" + (rescan ? "1" : "0"));
+        const data = await r.json();
+        const sel = $("ssid-select");
+        sel.innerHTML = "";
+        const networks = data.networks || [];
+        if (!networks.length) {
+            const opt = document.createElement("option");
+            opt.value = "";
+            opt.textContent = "(none found — type SSID below)";
+            sel.appendChild(opt);
+        } else {
+            networks.forEach((n) => {
+                const opt = document.createElement("option");
+                opt.value = n.ssid;
+                opt.textContent = `${n.ssid}  (${n.signal}%)`;
+                sel.appendChild(opt);
+            });
+        }
+        setStatus(networks.length ? `${networks.length} networks` : "No networks found", "");
+        refreshStatus();
+    } catch (e) {
+        setStatus(e.message || "Scan failed", "err");
+    }
+}
+
+async function connect() {
+    const ssid = ($("ssid-manual").value || $("ssid-select").value || "").trim();
+    const password = $("password").value || "";
+    if (!ssid) {
+        setStatus("Choose or type a network name", "err");
+        return;
+    }
+    $("btn-connect").disabled = true;
+    $("btn-try-saved").disabled = true;
+    setStatus("Connecting — this may take up to a minute…");
+    try {
+        const r = await fetch("/wifi/connect", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ ssid, password }),
+        });
+        const data = await r.json().catch(() => ({}));
+        if (!r.ok || !data.ok) {
+            throw new Error(data.message || "Connection failed");
+        }
+        setStatus(data.message || "Connected!", "ok");
+    } catch (e) {
+        setStatus(e.message || "Connection failed", "err");
+    } finally {
+        $("btn-connect").disabled = false;
+        $("btn-try-saved").disabled = false;
+    }
+}
+
+async function trySaved() {
+    $("btn-connect").disabled = true;
+    $("btn-try-saved").disabled = true;
+    setStatus("Leaving setup hotspot and trying saved Wi‑Fi…");
+    try {
+        const r = await fetch("/wifi/try-saved", { method: "POST" });
+        const data = await r.json().catch(() => ({}));
+        if (!r.ok || !data.ok) {
+            throw new Error(data.message || "Saved Wi‑Fi not available");
+        }
+        setStatus(data.message || "Connected!", "ok");
+    } catch (e) {
+        setStatus(e.message || "Saved Wi‑Fi not available", "err");
+        loadNetworks(true);
+    } finally {
+        $("btn-connect").disabled = false;
+        $("btn-try-saved").disabled = false;
+        refreshStatus();
+    }
+}
+
+$("btn-rescan").addEventListener("click", () => loadNetworks(true));
+$("btn-connect").addEventListener("click", connect);
+$("btn-try-saved").addEventListener("click", trySaved);
+refreshStatus();
+loadNetworks(true);
+</script>
+</body>
+</html>

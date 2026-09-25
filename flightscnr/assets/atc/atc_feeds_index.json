@@ -1,0 +1,1307 @@
+{
+  "_comment": "Offline LiveATC feed index (community list + FlightScnr). Stream: https://d.liveatc.net/<mount>. Merged under curated seed; online enrich still preferred when available.",
+  "_source": "https://gist.github.com/7h3rAm/4404fceed2f4234935927c6553bf8c95",
+  "airports": {
+    "CYUL": [
+      {
+        "mount": "cyul_twr2",
+        "label": "CYUL Tower",
+        "kind": "twr"
+      }
+    ],
+    "CYVR": [
+      {
+        "mount": "cyvr1_gnd_twr",
+        "label": "CYVR Del/Gnd/Twr #1",
+        "kind": "gnd"
+      }
+    ],
+    "CYYC": [
+      {
+        "mount": "cyyc",
+        "label": "CYYC Twr/App/Center",
+        "kind": "twr"
+      }
+    ],
+    "CYYZ": [
+      {
+        "mount": "cyyz7",
+        "label": "CYYZ Tower",
+        "kind": "twr"
+      }
+    ],
+    "EHAM": [
+      {
+        "mount": "eham01_twr_main1",
+        "label": "EHAM Tower (18C/36C-27/09)",
+        "kind": "twr"
+      }
+    ],
+    "EINN": [
+      {
+        "mount": "einn2",
+        "label": "EINN Twr/App #1",
+        "kind": "twr"
+      }
+    ],
+    "EPRZ": [
+      {
+        "mount": "eprz",
+        "label": "EPRZ Del/Twr/EPWW Radar",
+        "kind": "del"
+      }
+    ],
+    "KACY": [
+      {
+        "mount": "kacy_a_twr",
+        "label": "KACY Twr/App/Mil",
+        "kind": "twr"
+      }
+    ],
+    "KAPA": [
+      {
+        "mount": "kapa2_twr1",
+        "label": "KAPA Tower (Primary)",
+        "kind": "twr"
+      }
+    ],
+    "KATL": [
+      {
+        "mount": "katl_twr_1028",
+        "label": "KATL Tower (Rwy 10/28)",
+        "kind": "twr"
+      }
+    ],
+    "KAUG": [
+      {
+        "mount": "kaug",
+        "label": "KAUG CTAF/FSS",
+        "kind": "twr"
+      }
+    ],
+    "KAUN": [
+      {
+        "mount": "kaun",
+        "label": "KAUN CTAF",
+        "kind": "twr"
+      }
+    ],
+    "KAUS": [
+      {
+        "mount": "kaus3_twr",
+        "label": "KAUS Tower #1",
+        "kind": "twr"
+      }
+    ],
+    "KBDL": [
+      {
+        "mount": "kbdl2_twr",
+        "label": "KBDL Tower",
+        "kind": "twr"
+      }
+    ],
+    "KBDR": [
+      {
+        "mount": "kbdr_twr",
+        "label": "KBDR Del/Gnd/Twr",
+        "kind": "del"
+      }
+    ],
+    "KBED": [
+      {
+        "mount": "kbed1_gnd_twr",
+        "label": "KBED Gnd/Twr",
+        "kind": "gnd"
+      }
+    ],
+    "KBFI": [
+      {
+        "mount": "kbfi",
+        "label": "KBFI Ground/Tower",
+        "kind": "gnd"
+      }
+    ],
+    "KBFM": [
+      {
+        "mount": "kbfm",
+        "label": "KBFM Ground/Tower",
+        "kind": "gnd"
+      }
+    ],
+    "KBGR": [
+      {
+        "mount": "kbgr",
+        "label": "KBGR Del/Gnd/Twr",
+        "kind": "del"
+      }
+    ],
+    "KBHM": [
+      {
+        "mount": "kbhm",
+        "label": "KBHM Gnd/Twr/App",
+        "kind": "twr"
+      }
+    ],
+    "KBIL": [
+      {
+        "mount": "kbil_twr",
+        "label": "KBIL Tower",
+        "kind": "twr"
+      }
+    ],
+    "KBNA": [
+      {
+        "mount": "kbna_twr",
+        "label": "KBNA Tower",
+        "kind": "twr"
+      }
+    ],
+    "KBOI": [
+      {
+        "mount": "kboi",
+        "label": "KBOI Twr/App",
+        "kind": "twr"
+      }
+    ],
+    "KBOS": [
+      {
+        "mount": "kbos_twr",
+        "label": "KBOS Tower",
+        "kind": "twr"
+      }
+    ],
+    "KBTL": [
+      {
+        "mount": "kbtl",
+        "label": "KBTL/KAZO Gnd/Twr/App",
+        "kind": "twr"
+      }
+    ],
+    "KBTR": [
+      {
+        "mount": "kbtr",
+        "label": "KBTR/KHZR/L38 Del/Gnd/Twr/App/CTAF",
+        "kind": "del"
+      }
+    ],
+    "KBTV": [
+      {
+        "mount": "kbtv",
+        "label": "KBTV Del/Gnd/Twr/App",
+        "kind": "del"
+      }
+    ],
+    "KBUF": [
+      {
+        "mount": "kbuf_twr",
+        "label": "KBUF Tower",
+        "kind": "twr"
+      }
+    ],
+    "KBWI": [
+      {
+        "mount": "kbwi_twr",
+        "label": "KBWI Tower",
+        "kind": "twr"
+      }
+    ],
+    "KCAE": [
+      {
+        "mount": "kcae",
+        "label": "KCAE Gnd/Twr/App",
+        "kind": "twr"
+      }
+    ],
+    "KCAK": [
+      {
+        "mount": "kcak_del_gnd_twr",
+        "label": "KCAK Del/Gnd/Twr",
+        "kind": "gnd"
+      }
+    ],
+    "KCHA": [
+      {
+        "mount": "kcha",
+        "label": "KCHA Twr/App",
+        "kind": "twr"
+      }
+    ],
+    "KCHD": [
+      {
+        "mount": "kchd_twr1",
+        "label": "KCHD Tower (North)",
+        "kind": "twr"
+      }
+    ],
+    "KCHS": [
+      {
+        "mount": "kchs",
+        "label": "KCHS Gnd/Twr/App",
+        "kind": "twr"
+      }
+    ],
+    "KCID": [
+      {
+        "mount": "kcid",
+        "label": "KCID Gnd/Twr/App/KIOW",
+        "kind": "twr"
+      }
+    ],
+    "KCLE": [
+      {
+        "mount": "kcle3_twr",
+        "label": "KCLE Tower",
+        "kind": "twr"
+      }
+    ],
+    "KCLT": [
+      {
+        "mount": "kclt_twr",
+        "label": "KCLT Tower",
+        "kind": "twr"
+      }
+    ],
+    "KCMH": [
+      {
+        "mount": "kcmh1_twr",
+        "label": "KCMH Tower",
+        "kind": "twr"
+      }
+    ],
+    "KCRW": [
+      {
+        "mount": "kcrw",
+        "label": "KCRW Tower/Approach",
+        "kind": "twr"
+      }
+    ],
+    "KCVG": [
+      {
+        "mount": "kcvg1_twr_all",
+        "label": "KCVG Tower (All)",
+        "kind": "twr"
+      }
+    ],
+    "KDAB": [
+      {
+        "mount": "kdab_tmp",
+        "label": "KDAB Ground/Tower",
+        "kind": "gnd"
+      }
+    ],
+    "KDAL": [
+      {
+        "mount": "kdal_twr",
+        "label": "KDAL Tower",
+        "kind": "twr"
+      }
+    ],
+    "KDAY": [
+      {
+        "mount": "kday",
+        "label": "KDAY Del/Gnd/Twr/App",
+        "kind": "del"
+      }
+    ],
+    "KDCA": [
+      {
+        "mount": "kdca",
+        "label": "KDCA Tower/Approach",
+        "kind": "twr"
+      }
+    ],
+    "KDEN": [
+      {
+        "mount": "kden1_3",
+        "label": "KDEN Tower",
+        "kind": "twr"
+      }
+    ],
+    "KDFW": [
+      {
+        "mount": "kdfw1_twr1_e",
+        "label": "KDFW Tower (East)",
+        "kind": "twr"
+      }
+    ],
+    "KDPA": [
+      {
+        "mount": "kdpa2",
+        "label": "KDPA Del/Gnd/Twr/Misc",
+        "kind": "del"
+      }
+    ],
+    "KDSM": [
+      {
+        "mount": "kdsm",
+        "label": "KDSM Gnd/Twr/App",
+        "kind": "twr"
+      }
+    ],
+    "KDTW": [
+      {
+        "mount": "kdtw_twr",
+        "label": "KDTW Tower",
+        "kind": "twr"
+      }
+    ],
+    "KDYL": [
+      {
+        "mount": "kdyl",
+        "label": "DYL CTAF #1",
+        "kind": "twr"
+      }
+    ],
+    "KEDC": [
+      {
+        "mount": "kedc1_gnd_twr",
+        "label": "KEDC Ground/Tower",
+        "kind": "gnd"
+      }
+    ],
+    "KELP": [
+      {
+        "mount": "kelp1_twr",
+        "label": "KELP Tower",
+        "kind": "twr"
+      }
+    ],
+    "KEVB": [
+      {
+        "mount": "kevb",
+        "label": "KEVB Gnd/Twr",
+        "kind": "twr"
+      }
+    ],
+    "KEWR": [
+      {
+        "mount": "kewr2_twr",
+        "label": "KEWR Tower #2",
+        "kind": "twr"
+      }
+    ],
+    "KFFC": [
+      {
+        "mount": "kcco1_123050",
+        "label": "KFFC CTAF",
+        "kind": "twr"
+      }
+    ],
+    "KFLL": [
+      {
+        "mount": "kfll1_twr",
+        "label": "KFLL Tower",
+        "kind": "twr"
+      }
+    ],
+    "KFNT": [
+      {
+        "mount": "kfnt2_twr",
+        "label": "KFNT Tower",
+        "kind": "twr"
+      }
+    ],
+    "KFTY": [
+      {
+        "mount": "kfty",
+        "label": "KFTY Ground/Tower",
+        "kind": "gnd"
+      }
+    ],
+    "KFUL": [
+      {
+        "mount": "kful2",
+        "label": "KFUL Ground/Tower",
+        "kind": "gnd"
+      }
+    ],
+    "KGEG": [
+      {
+        "mount": "kgeg",
+        "label": "KGEG Del/Gnd/Twr/App",
+        "kind": "del"
+      }
+    ],
+    "KGKY": [
+      {
+        "mount": "kgky_gnd_twr",
+        "label": "KGKY Ground/Tower",
+        "kind": "gnd"
+      }
+    ],
+    "KGRB": [
+      {
+        "mount": "kgrb",
+        "label": "KGRB Del/Gnd/Twr/App",
+        "kind": "del"
+      }
+    ],
+    "KGSP": [
+      {
+        "mount": "kgmu_kgsp_twr",
+        "label": "KGSP Tower",
+        "kind": "twr"
+      }
+    ],
+    "KGTU": [
+      {
+        "mount": "kgtu",
+        "label": "KGTU Gnd/Twr",
+        "kind": "twr"
+      }
+    ],
+    "KHDC": [
+      {
+        "mount": "khdc",
+        "label": "KHDC De/Gnd/Twr/App/ZHU",
+        "kind": "twr"
+      }
+    ],
+    "KHOU": [
+      {
+        "mount": "khou1",
+        "label": "KHOU Gnd/Twr/App",
+        "kind": "twr"
+      }
+    ],
+    "KHPN": [
+      {
+        "mount": "khpn_twr",
+        "label": "KHPN Tower",
+        "kind": "twr"
+      }
+    ],
+    "KHSV": [
+      {
+        "mount": "khsv3_gnd_twr",
+        "label": "KHSV Gnd/Twr",
+        "kind": "gnd"
+      }
+    ],
+    "KHWD": [
+      {
+        "mount": "khwd",
+        "label": "KHWD Ground/Tower",
+        "kind": "gnd"
+      }
+    ],
+    "KIAD": [
+      {
+        "mount": "kiad1_3",
+        "label": "KIAD Twr (Rwy 1C/19C)",
+        "kind": "twr"
+      }
+    ],
+    "KIAH": [
+      {
+        "mount": "kiah1_1",
+        "label": "KIAH Twr",
+        "kind": "twr"
+      }
+    ],
+    "KIND": [
+      {
+        "mount": "kind2_twr",
+        "label": "KIND Tower",
+        "kind": "twr"
+      }
+    ],
+    "KIPT": [
+      {
+        "mount": "kipt",
+        "label": "KIPT Gnd/Twr/ZNY",
+        "kind": "twr"
+      }
+    ],
+    "KISP": [
+      {
+        "mount": "kisp_gnd_twr",
+        "label": "KISP Tower",
+        "kind": "gnd"
+      }
+    ],
+    "KJAN": [
+      {
+        "mount": "kjan",
+        "label": "KJAN Gnd/Twr/App/Dep",
+        "kind": "twr"
+      }
+    ],
+    "KJAX": [
+      {
+        "mount": "kjax_gnd_twr",
+        "label": "KJAX Gnd/Twr",
+        "kind": "gnd"
+      }
+    ],
+    "KJFK": [
+      {
+        "mount": "kjfk9_s",
+        "label": "KJFK Gnd/Twr #2",
+        "kind": "twr"
+      }
+    ],
+    "KJWY": [
+      {
+        "mount": "kjwy2",
+        "label": "KJWY/2TS6 CTAF/Unicom",
+        "kind": "twr"
+      }
+    ],
+    "KLAN": [
+      {
+        "mount": "klan",
+        "label": "KLAN Del/Gnd/Twr/App",
+        "kind": "del"
+      }
+    ],
+    "KLAS": [
+      {
+        "mount": "klas4_twr",
+        "label": "KLAS Tower (Both)",
+        "kind": "twr"
+      }
+    ],
+    "KLAX": [
+      {
+        "mount": "klax_twr",
+        "label": "KLAX Tower (North/South)",
+        "kind": "twr"
+      }
+    ],
+    "KLBB": [
+      {
+        "mount": "klbb",
+        "label": "KLBB Gnd/Twr/App",
+        "kind": "twr"
+      }
+    ],
+    "KLGA": [
+      {
+        "mount": "klga_twr",
+        "label": "KLGA Tower #1",
+        "kind": "twr"
+      }
+    ],
+    "KLVK": [
+      {
+        "mount": "klvk2",
+        "label": "KLVK Ground/Tower",
+        "kind": "gnd"
+      }
+    ],
+    "KMCI": [
+      {
+        "mount": "kmci1_local",
+        "label": "KMCI Del/Gnd/Twr",
+        "kind": "del"
+      }
+    ],
+    "KMCO": [
+      {
+        "mount": "korl_kmco_app_120150",
+        "label": "KMCO Tower (Both)",
+        "kind": "twr"
+      }
+    ],
+    "KMDW": [
+      {
+        "mount": "kmdw_1",
+        "label": "KMDW Tower",
+        "kind": "twr"
+      }
+    ],
+    "KMGE": [
+      {
+        "mount": "kryy1_kmge_twr",
+        "label": "KMGE Tower",
+        "kind": "twr"
+      }
+    ],
+    "KMHR": [
+      {
+        "mount": "kmhr",
+        "label": "KMHR Ground/Tower",
+        "kind": "gnd"
+      }
+    ],
+    "KMHT": [
+      {
+        "mount": "kmht",
+        "label": "KMHT Del/Gnd/Twr",
+        "kind": "del"
+      }
+    ],
+    "KMIA": [
+      {
+        "mount": "kmia3_app_133775",
+        "label": "KMIA Approach (KFLL)",
+        "kind": "app"
+      }
+    ],
+    "KMKE": [
+      {
+        "mount": "kmke3_twr",
+        "label": "KMKE Tower",
+        "kind": "twr"
+      }
+    ],
+    "KMLI": [
+      {
+        "mount": "kmli",
+        "label": "KMLI Del/Gnd/Twr/App",
+        "kind": "del"
+      }
+    ],
+    "KMRY": [
+      {
+        "mount": "kmry",
+        "label": "KMRY Del/Gnd/Twr",
+        "kind": "del"
+      }
+    ],
+    "KMSN": [
+      {
+        "mount": "kmsn",
+        "label": "KMSN Twr/App",
+        "kind": "twr"
+      }
+    ],
+    "KMSY": [
+      {
+        "mount": "kmsy2",
+        "label": "KMSY Gnd/Twr/App",
+        "kind": "twr"
+      }
+    ],
+    "KMYR": [
+      {
+        "mount": "kmyr",
+        "label": "KMYR Gnd/Twr/App",
+        "kind": "twr"
+      }
+    ],
+    "KOAK": [
+      {
+        "mount": "koak",
+        "label": "KOAK Del/Gnd/Twr",
+        "kind": "del"
+      }
+    ],
+    "KOKC": [
+      {
+        "mount": "kokc_twr",
+        "label": "KOKC Tower",
+        "kind": "twr"
+      }
+    ],
+    "KOMA": [
+      {
+        "mount": "koma",
+        "label": "KOMA Del/Gnd/Twr",
+        "kind": "del"
+      }
+    ],
+    "KONT": [
+      {
+        "mount": "kont1_twr",
+        "label": "KONT Tower",
+        "kind": "twr"
+      }
+    ],
+    "KORD": [
+      {
+        "mount": "kord7",
+        "label": "KORD Tower",
+        "kind": "twr"
+      }
+    ],
+    "KORL": [
+      {
+        "mount": "korl_del_gnd_twr",
+        "label": "KORL Del/Gnd/Twr",
+        "kind": "gnd"
+      }
+    ],
+    "KPBI": [
+      {
+        "mount": "kpbi2_twr",
+        "label": "KPBI Tower",
+        "kind": "twr"
+      }
+    ],
+    "KPDK": [
+      {
+        "mount": "kpdk2_twr",
+        "label": "KPDK Tower #1",
+        "kind": "twr"
+      }
+    ],
+    "KPDX": [
+      {
+        "mount": "kpdx3_twr",
+        "label": "KPDX Tower (Both)",
+        "kind": "twr"
+      }
+    ],
+    "KPHL": [
+      {
+        "mount": "kphl_twr_east",
+        "label": "KPHL Tower (East)",
+        "kind": "twr"
+      },
+      {
+        "mount": "kphl_twr_west",
+        "label": "KPHL Tower (West)",
+        "kind": "twr"
+      },
+      {
+        "mount": "kphl_twr_both",
+        "label": "KPHL Tower (East/West)",
+        "kind": "twr"
+      },
+      {
+        "mount": "kphl_gnd",
+        "label": "KPHL Ground (Both)",
+        "kind": "gnd"
+      },
+      {
+        "mount": "kphl_ramp",
+        "label": "KPHL Ramp Control",
+        "kind": "ramp"
+      },
+      {
+        "mount": "kphl_del2",
+        "label": "KPHL Clearance Delivery",
+        "kind": "del"
+      },
+      {
+        "mount": "kphl_final",
+        "label": "KPHL App (Final)",
+        "kind": "app"
+      },
+      {
+        "mount": "kphl_app_128400",
+        "label": "KPHL App (N. Arrival) #1",
+        "kind": "app"
+      },
+      {
+        "mount": "kphl_n_arr",
+        "label": "KPHL App (N. Arrival) #2",
+        "kind": "app"
+      },
+      {
+        "mount": "kphl_s_arr",
+        "label": "KPHL App (S. Arrival) #1",
+        "kind": "app"
+      },
+      {
+        "mount": "kphl_app_133875",
+        "label": "KPHL App (S. Arrival) #2",
+        "kind": "app"
+      },
+      {
+        "mount": "kphl_app_119750",
+        "label": "KPHL App/Dep (South)",
+        "kind": "app"
+      },
+      {
+        "mount": "kphl_app",
+        "label": "KPHL Approach (North High)",
+        "kind": "app"
+      },
+      {
+        "mount": "kabe1_kphlapp_126850",
+        "label": "KPHL App (NW Pottstown Area)",
+        "kind": "app"
+      },
+      {
+        "mount": "kphl_dep",
+        "label": "KPHL Dep (N/S Dep)",
+        "kind": "dep"
+      },
+      {
+        "mount": "kphl_n_dep",
+        "label": "KPHL Departure (North)",
+        "kind": "dep"
+      },
+      {
+        "mount": "kphl_s_dep",
+        "label": "KPHL Departure (South)",
+        "kind": "dep"
+      },
+      {
+        "mount": "kphl_atis_arr",
+        "label": "KPHL ATIS (Arrival)",
+        "kind": "atis"
+      },
+      {
+        "mount": "kphl_atis_dep",
+        "label": "KPHL ATIS (Departure)",
+        "kind": "atis"
+      }
+    ],
+    "KPHX": [
+      {
+        "mount": "kphx_twr_both",
+        "label": "KPHX Tower (North/South)",
+        "kind": "twr"
+      }
+    ],
+    "KPIA": [
+      {
+        "mount": "kpia_twr",
+        "label": "KPIA Tower",
+        "kind": "twr"
+      }
+    ],
+    "KPIT": [
+      {
+        "mount": "kpit1_twr",
+        "label": "KPIT Tower #1",
+        "kind": "twr"
+      }
+    ],
+    "KPNE": [
+      {
+        "mount": "kpne",
+        "label": "KPNE Del/Gnd/Twr/App",
+        "kind": "del"
+      }
+    ],
+    "KPNS": [
+      {
+        "mount": "kpns1_twr",
+        "label": "KPNS Tower #1",
+        "kind": "twr"
+      }
+    ],
+    "KPTK": [
+      {
+        "mount": "kptk1_twr",
+        "label": "KPTK Tower #1",
+        "kind": "twr"
+      }
+    ],
+    "KPVD": [
+      {
+        "mount": "kpvd_gnd_twr",
+        "label": "KPVD Gnd/Twr",
+        "kind": "gnd"
+      }
+    ],
+    "KPWK": [
+      {
+        "mount": "kpwk",
+        "label": "KPWK Del/Gnd/Tower",
+        "kind": "del"
+      }
+    ],
+    "KPWM": [
+      {
+        "mount": "kpwm",
+        "label": "KPWM Gnd/Twr/App",
+        "kind": "twr"
+      }
+    ],
+    "KRDU": [
+      {
+        "mount": "krdu_app",
+        "label": "KRDU Approach",
+        "kind": "app"
+      }
+    ],
+    "KRFD": [
+      {
+        "mount": "krfd2_del_gnd_twr_app",
+        "label": "KRFD Del/Gnd/Twr/App",
+        "kind": "gnd"
+      }
+    ],
+    "KRHV": [
+      {
+        "mount": "krhv1",
+        "label": "KRHV Ground/Tower",
+        "kind": "gnd"
+      }
+    ],
+    "KRNO": [
+      {
+        "mount": "krno",
+        "label": "KRNO Del/Gnd/Twr/App/ZOA",
+        "kind": "del"
+      }
+    ],
+    "KROA": [
+      {
+        "mount": "kroa2_twr",
+        "label": "KROA Gnd/Twr",
+        "kind": "twr"
+      }
+    ],
+    "KROC": [
+      {
+        "mount": "kroc",
+        "label": "KROC Approach",
+        "kind": "app"
+      }
+    ],
+    "KROG": [
+      {
+        "mount": "krog",
+        "label": "KROG/KXNA/KVBT/Misc",
+        "kind": "twr"
+      }
+    ],
+    "KRSW": [
+      {
+        "mount": "krsw2",
+        "label": "KRSW Gnd/Twr/App/Dep",
+        "kind": "twr"
+      }
+    ],
+    "KSAC": [
+      {
+        "mount": "ksac",
+        "label": "KSAC Tower",
+        "kind": "twr"
+      }
+    ],
+    "KSAN": [
+      {
+        "mount": "ksan1_twr",
+        "label": "KSAN Tower #1",
+        "kind": "twr"
+      }
+    ],
+    "KSAT": [
+      {
+        "mount": "ksat",
+        "label": "KSAT Tower",
+        "kind": "twr"
+      }
+    ],
+    "KSBA": [
+      {
+        "mount": "ksba",
+        "label": "KSBA Tower",
+        "kind": "twr"
+      }
+    ],
+    "KSCK": [
+      {
+        "mount": "ksck",
+        "label": "KSCK Gnd/Tower/NORCAL App",
+        "kind": "twr"
+      }
+    ],
+    "KSDF": [
+      {
+        "mount": "ksdf_twr",
+        "label": "KSDF Ground/Tower #1",
+        "kind": "gnd"
+      }
+    ],
+    "KSFB": [
+      {
+        "mount": "ksfb3_twr1",
+        "label": "KSFB Tower (Main)",
+        "kind": "twr"
+      }
+    ],
+    "KSFO": [
+      {
+        "mount": "ksfo_twr2",
+        "label": "KSFO Tower/Ground",
+        "kind": "gnd"
+      }
+    ],
+    "KSGF": [
+      {
+        "mount": "ksgf",
+        "label": "KSGF Ground/Tower",
+        "kind": "gnd"
+      }
+    ],
+    "KSJC": [
+      {
+        "mount": "ksjc_app",
+        "label": "KSJC NORCAL Approach #1",
+        "kind": "app"
+      }
+    ],
+    "KSLC": [
+      {
+        "mount": "kslc_vfr",
+        "label": "KSLC Tower Rwy 34L/16R",
+        "kind": "twr"
+      }
+    ],
+    "KSNA": [
+      {
+        "mount": "ksna2",
+        "label": "KSNA Del/Gnd/Twr/App",
+        "kind": "del"
+      }
+    ],
+    "KSQL": [
+      {
+        "mount": "ksql2",
+        "label": "KSQL Ground/Tower",
+        "kind": "gnd"
+      }
+    ],
+    "KSTL": [
+      {
+        "mount": "kstl2_twr",
+        "label": "KSTL Twr/Dep",
+        "kind": "twr"
+      }
+    ],
+    "KSYR": [
+      {
+        "mount": "ksyr",
+        "label": "KSYR Tower/Approach",
+        "kind": "twr"
+      }
+    ],
+    "KTLH": [
+      {
+        "mount": "ktlh",
+        "label": "KTLH Del/Gnd/Twr/App",
+        "kind": "del"
+      }
+    ],
+    "KTOL": [
+      {
+        "mount": "ktol",
+        "label": "KTOL Del/Gnd/Twr/App",
+        "kind": "del"
+      }
+    ],
+    "KTPA": [
+      {
+        "mount": "ktpa1_twr",
+        "label": "KTPA Tower #1",
+        "kind": "twr"
+      }
+    ],
+    "KTUS": [
+      {
+        "mount": "ktus",
+        "label": "KDMA/KTUS Twr/Ops/ZAB",
+        "kind": "twr"
+      }
+    ],
+    "KTVC": [
+      {
+        "mount": "ktvc",
+        "label": "KTVC Ground/Tower",
+        "kind": "gnd"
+      }
+    ],
+    "KTYS": [
+      {
+        "mount": "ktys",
+        "label": "KTYS Del/Gnd/Twr/App",
+        "kind": "del"
+      }
+    ],
+    "KUGN": [
+      {
+        "mount": "kugn",
+        "label": "KUGN Tower",
+        "kind": "twr"
+      }
+    ],
+    "KVNY": [
+      {
+        "mount": "kvny",
+        "label": "KVNY Tower #1",
+        "kind": "twr"
+      }
+    ],
+    "LFPG": [
+      {
+        "mount": "lfpg3_dep",
+        "label": "LFPG Tower",
+        "kind": "twr"
+      }
+    ],
+    "LFPO": [
+      {
+        "mount": "lfpo3_twr",
+        "label": "LFPO Tower",
+        "kind": "twr"
+      }
+    ],
+    "LMML": [
+      {
+        "mount": "lmml6",
+        "label": "LMML GndTwr/App/Control",
+        "kind": "twr"
+      }
+    ],
+    "PABE": [
+      {
+        "mount": "pabe1_gnd_twr",
+        "label": "PABE Ground/Tower",
+        "kind": "gnd"
+      }
+    ],
+    "PAFA": [
+      {
+        "mount": "pafa1_twr",
+        "label": "PAFA Tower",
+        "kind": "twr"
+      }
+    ],
+    "PANC": [
+      {
+        "mount": "panc",
+        "label": "PANC Del/Gnd/Twr/App",
+        "kind": "del"
+      }
+    ],
+    "PHNL": [
+      {
+        "mount": "phnl1_twr_pri",
+        "label": "PHNL Tower (Primary)",
+        "kind": "twr"
+      }
+    ],
+    "RJAA": [
+      {
+        "mount": "rjaa_app_s",
+        "label": "RJAA Approach",
+        "kind": "app"
+      }
+    ],
+    "RJTT": [
+      {
+        "mount": "rjtt_app_dep",
+        "label": "RJTT App/Dep",
+        "kind": "app"
+      }
+    ],
+    "TJSJ": [
+      {
+        "mount": "tjsj2_local",
+        "label": "TJSJ Twr/App/Dep",
+        "kind": "twr"
+      }
+    ],
+    "TQPF": [
+      {
+        "mount": "tncm1_tqpf_twr",
+        "label": "TQPF Tower",
+        "kind": "twr"
+      }
+    ],
+    "TTPP": [
+      {
+        "mount": "ttpp_twr",
+        "label": "TTPP Apron/Gnd/Twr",
+        "kind": "twr"
+      }
+    ],
+    "YBAF": [
+      {
+        "mount": "ybaf2",
+        "label": "YBAF Gnd/Twr #2",
+        "kind": "twr"
+      }
+    ],
+    "YMML": [
+      {
+        "mount": "ymml3",
+        "label": "YMML Twr/App/Center",
+        "kind": "twr"
+      }
+    ],
+    "YSSY": [
+      {
+        "mount": "yssy1_twr",
+        "label": "YSSY Tower (Both)",
+        "kind": "twr"
+      },
+      {
+        "mount": "yssy1_twr1",
+        "label": "YSSY Tower (Rwys 16R/34L,7/25)",
+        "kind": "twr"
+      },
+      {
+        "mount": "yssy1_twr2",
+        "label": "YSSY Tower (Rwy 16L/34R)",
+        "kind": "twr"
+      },
+      {
+        "mount": "yssy1_del_gnd",
+        "label": "YSSY Del/Gnd",
+        "kind": "gnd"
+      },
+      {
+        "mount": "yssy1_app_n",
+        "label": "YSSY Approach (North/East)",
+        "kind": "app"
+      },
+      {
+        "mount": "yssy1_app_s",
+        "label": "YSSY Approach (South)",
+        "kind": "app"
+      },
+      {
+        "mount": "yssy1_dir_e",
+        "label": "YSSY Director (East)",
+        "kind": "app"
+      },
+      {
+        "mount": "yssy1_dep_ne",
+        "label": "YSSY Departure (North/East)",
+        "kind": "dep"
+      },
+      {
+        "mount": "yssy1_dep_s",
+        "label": "YSSY Departure (South/West)",
+        "kind": "dep"
+      },
+      {
+        "mount": "yssy1_ctr_s",
+        "label": "YSSY Center (South/West)",
+        "kind": "ctr"
+      },
+      {
+        "mount": "yssy1_ctr_124625",
+        "label": "Brisbane Center (124.625/YSSY)",
+        "kind": "ctr"
+      },
+      {
+        "mount": "yssy1_ctr_124950",
+        "label": "Brisbane Center (124.95/YSSY)",
+        "kind": "ctr"
+      },
+      {
+        "mount": "yssy1_ctr_125000",
+        "label": "Brisbane Center (125.0/YSSY)",
+        "kind": "ctr"
+      },
+      {
+        "mount": "yssy1_ctr_128600",
+        "label": "Brisbane Center (128.6/YSSY)",
+        "kind": "ctr"
+      },
+      {
+        "mount": "yssy1_atis1",
+        "label": "YSSY ATIS",
+        "kind": "atis"
+      }
+    ],
+    "ESSB": [
+      {
+        "mount": "essb2",
+        "label": "ESSB Tower",
+        "kind": "twr"
+      }
+    ]
+  }
+}

@@ -1,0 +1,48 @@
+name: 📑 Documentation
+description: Improvements or additions to documentation
+title: "[Docs]: "
+labels: ["scope:docs"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this for missing, incorrect, or unclear docs (README, wiki, comments, install notes).
+        A PR that fixes the docs is often better than an issue alone.
+
+  - type: dropdown
+    id: docs_kind
+    attributes:
+      label: What kind of docs issue?
+      options:
+        - Incorrect information
+        - Missing information
+        - Unclear / hard to follow
+        - Typo / formatting
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: describe
+    attributes:
+      label: Describe the issue
+      description: What page/section, what is wrong, and what should change.
+      placeholder: |
+        - Page / section:
+        - Problem:
+        - Suggested fix:
+    validations:
+      required: true
+
+  - type: input
+    id: page_url
+    attributes:
+      label: Page URL (optional)
+      description: Link to the wiki page, README section, or docs file if you have one.
+      placeholder: https://github.com/yashmulgaonkar/FlightScnr_Pi/wiki/…
+
+  - type: textarea
+    id: media
+    attributes:
+      label: Screenshot / media (optional)
+      description: Add a screenshot or other media if it helps.
