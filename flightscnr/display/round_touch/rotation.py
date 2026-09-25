@@ -99,15 +99,15 @@ def rotation_degrees() -> int:
 
 def to_logical(x: float, y: float) -> tuple[int, int]:
     """Map a physical screen/touch coordinate into the draw buffer."""
-    width, height = theme.frame_size()
+    side = theme.SIZE
     rotation = rotation_degrees()
     if rotation == 0:
         return int(x), int(y)
     if rotation == 90:
-        return int(y), int(width - 1 - x)
+        return int(y), int(side - 1 - x)
     if rotation == 180:
-        return int(width - 1 - x), int(height - 1 - y)
-    return int(height - 1 - y), int(x)
+        return int(side - 1 - x), int(side - 1 - y)
+    return int(side - 1 - y), int(x)
 
 
 def present(display: pygame.Surface, frame: pygame.Surface) -> None:
@@ -130,7 +130,7 @@ def present(display: pygame.Surface, frame: pygame.Surface) -> None:
     if display.get_size() == rotated.get_size():
         display.blit(rotated, (0, 0))
         return
-    display.fill(theme.BG)
+    display.fill((0, 0, 0))
     display.blit(rotated, _center_offset(display, rotated))
 
 
@@ -526,7 +526,7 @@ def _blit_update_bubble(
     if radar_hud.volume_popover_open():
         return None
 
-    logical = pygame.Surface(theme.frame_size(), pygame.SRCALPHA)
+    logical = pygame.Surface((theme.SIZE, theme.SIZE), pygame.SRCALPHA)
     dirty = update_bubble.draw_bubble(logical)
     if dirty is None or dirty.width <= 0 or dirty.height <= 0:
         return None
@@ -580,7 +580,7 @@ def _blit_airport_callout(
     if radar_hud.volume_popover_open():
         return None
 
-    logical = pygame.Surface(theme.frame_size(), pygame.SRCALPHA)
+    logical = pygame.Surface((theme.SIZE, theme.SIZE), pygame.SRCALPHA)
     dirty = airport_overlay.draw_callout(logical, pan_offset=None)
     if dirty is None or dirty.width <= 0 or dirty.height <= 0:
         return None
@@ -629,7 +629,7 @@ def _blit_radial_menu(
     if not radial_menu.is_open():
         return None
 
-    logical = pygame.Surface(theme.frame_size(), pygame.SRCALPHA)
+    logical = pygame.Surface((theme.SIZE, theme.SIZE), pygame.SRCALPHA)
     try:
         dirty = radial_menu.draw(logical)
     except Exception:
@@ -681,7 +681,7 @@ def _blit_lofi_controls(
     if not lofi_controls.visible():
         return None
 
-    logical = pygame.Surface(theme.frame_size(), pygame.SRCALPHA)
+    logical = pygame.Surface((theme.SIZE, theme.SIZE), pygame.SRCALPHA)
     try:
         dirty = lofi_controls.draw(logical)
     except Exception:
@@ -757,7 +757,7 @@ def _blit_lofi_tile(
     if _lofi_tile_stamp is None or _lofi_tile_stamp_key != key:
         # Rendering and rotating a full-size surface every frame costs a whole
         # core, and the tile only changes when its track or pause state does.
-        logical = pygame.Surface(theme.frame_size(), pygame.SRCALPHA)
+        logical = pygame.Surface((theme.SIZE, theme.SIZE), pygame.SRCALPHA)
         dirty = lofi_tile.draw(logical)
         if dirty is None or dirty.width <= 0 or dirty.height <= 0:
             return None
@@ -807,7 +807,7 @@ def _blit_airport_tile(
     if not airport_tile.is_open():
         return None
 
-    logical = pygame.Surface(theme.frame_size(), pygame.SRCALPHA)
+    logical = pygame.Surface((theme.SIZE, theme.SIZE), pygame.SRCALPHA)
     dirty = airport_tile.draw(logical)
     if dirty is None or dirty.width <= 0 or dirty.height <= 0:
         return None
@@ -863,7 +863,7 @@ def _blit_favourite_tile(
     except ImportError:
         pass
 
-    logical = pygame.Surface(theme.frame_size(), pygame.SRCALPHA)
+    logical = pygame.Surface((theme.SIZE, theme.SIZE), pygame.SRCALPHA)
     dirty = favourite_tile.draw(logical)
     if dirty is None or dirty.width <= 0 or dirty.height <= 0:
         return None
@@ -915,7 +915,7 @@ def _blit_location_toast(
     if radar_hud.volume_popover_open():
         return None
 
-    logical = pygame.Surface(theme.frame_size(), pygame.SRCALPHA)
+    logical = pygame.Surface((theme.SIZE, theme.SIZE), pygame.SRCALPHA)
     dirty = radar.draw_location_toast(logical)
     if dirty is None or dirty.width <= 0 or dirty.height <= 0:
         return None

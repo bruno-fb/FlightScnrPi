@@ -504,7 +504,7 @@ def _textured_bg_surface() -> pygame.Surface | None:
     except Exception:
         return None
     tile.set_alpha(_TEXTURE_ALPHA)
-    bg = pygame.Surface(theme.frame_size())
+    bg = pygame.Surface((theme.SIZE, theme.SIZE))
     bg.fill(theme.BG)
     tw, th = tile.get_size()
     if tw <= 0 or th <= 0:
@@ -559,13 +559,13 @@ def _composited_bg_surface() -> pygame.Surface | None:
         return _composite_bg
 
     tile = _textured_bg_surface() if textured else None
-    if tile is None or tile.get_size() != theme.frame_size():
+    if tile is None or tile.get_size() != (theme.SIZE, theme.SIZE):
         # Nothing to bake in — callers fall back to a plain fill.
         _composite_bg = None
         _composite_bg_key = key
         return None
 
-    composite = pygame.Surface(theme.frame_size())
+    composite = pygame.Surface((theme.SIZE, theme.SIZE))
     composite.fill(theme.BG)
     composite.blit(tile, (0, 0))
     try:
@@ -778,9 +778,26 @@ def _bezel_band_rects(size, cx: int, cy: int, radius: int) -> list[pygame.Rect]:
 
 
 def apply_round_bezel(surface: pygame.Surface):
-    """Compatibility hook; rectangular panels no longer receive a black bezel.
+    """Mask everything outside the round visible area.
 
-    The radar itself remains circular via its geometry and centered map, while
-    the panel background is allowed to continue through the area around it.
+    Blits only the border band. A full-screen alpha blit is ~4.3 ms/frame on
+    the Pi, which alone eats a quarter of the sweep's 16 ms frame budget.
     """
-    return None
+    global _bezel_overlay, _bezel_key, _bezel_rects
+    size = surface.get_size()
+    key = (size, theme.CENTER_X, theme.CENTER_Y, theme.VISIBLE_RADIUS, theme.BG)
+    if _bezel_overlay is None or _bezel_key != key:
+        _bezel_overlay = pygame.Surface(size, pygame.SRCALPHA)
+        _bezel_overlay.fill((*theme.BG, 255))
+        pygame.draw.circle(
+            _bezel_overlay,
+            (0, 0, 0, 0),
+            (theme.CENTER_X, theme.CENTER_Y),
+            theme.VISIBLE_RADIUS,
+        )
+        _bezel_rects = _bezel_band_rects(
+            size, theme.CENTER_X, theme.CENTER_Y, theme.VISIBLE_RADIUS
+        )
+        _bezel_key = key
+    for rect in _bezel_rects:
+        surface.blit(_bezel_overlay, rect.topleft, area=rect)
