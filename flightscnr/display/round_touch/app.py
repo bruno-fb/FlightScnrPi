@@ -133,29 +133,29 @@ class RoundTouchDisplay:
         system_control.discard_stale_shutdown_progress()
 
         try:
-            from config import DISPLAY_FULLSCREEN
+            from config import DISPLAY_FULLSCREEN, DISPLAY_WIDTH, DISPLAY_HEIGHT
             fullscreen = DISPLAY_FULLSCREEN
+            requested_width = int(DISPLAY_WIDTH)
+            requested_height = int(DISPLAY_HEIGHT)
         except ImportError:
             fullscreen = os.environ.get("DISPLAY_FULLSCREEN", "true").lower() in ("1", "true", "yes")
+            requested_width = int(os.environ.get("DISPLAY_WIDTH", str(theme.SIZE)))
+            requested_height = int(os.environ.get("DISPLAY_HEIGHT", str(theme.SIZE)))
 
         self._fullscreen = bool(fullscreen)
-        requested = theme.SIZE
-        self._display = video.init_display(requested, requested, self._fullscreen)
-        fit_side = min(self._display.get_size())
-        if fit_side != theme.SIZE:
+        self._display = video.init_display(requested_width, requested_height, self._fullscreen)
+        actual_width, actual_height = self._display.get_size()
+        if (actual_width, actual_height) != (theme.DISPLAY_WIDTH, theme.DISPLAY_HEIGHT):
             logger.info(
-                "Framebuffer adjusted %d×%d → %d×%d to match display",
-                requested,
-                requested,
-                fit_side,
-                fit_side,
+                "Framebuffer adjusted %dx%d → %dx%d",
+                theme.DISPLAY_WIDTH,
+                theme.DISPLAY_HEIGHT,
+                actual_width,
+                actual_height,
             )
-            theme.set_framebuffer_side(fit_side)
+            theme.set_framebuffer_size(actual_width, actual_height)
             map_bg.invalidate()
-            if self._display.get_size() != (fit_side, fit_side):
-                pygame.display.quit()
-                self._display = video.init_display(fit_side, fit_side, self._fullscreen)
-        self.surface = pygame.Surface((theme.SIZE, theme.SIZE))
+        self.surface = pygame.Surface(theme.frame_size())
         x11_kiosk.hide_kiosk_cursor(reason="app_init")
         pygame.event.set_allowed(
             None

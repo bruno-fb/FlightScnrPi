@@ -49,10 +49,16 @@ def tag_s(value: float) -> int:
     return max(1, int(round(value * SCALE * TAG_FONT_SCALE)))
 
 
-def _apply_framebuffer_side(side: int) -> None:
-    """Recompute layout constants for a square draw buffer."""
+DISPLAY_WIDTH = 720
+DISPLAY_HEIGHT = 720
+
+
+def _apply_framebuffer_side(side: int, display_width: int | None = None, display_height: int | None = None) -> None:
+    """Recompute layout constants for the round radar inside a rectangular frame."""
+
     _S_CACHE.clear()
     global SIZE, SCALE, CENTER_X, CENTER_Y, BEZEL_INSET, VISIBLE_RADIUS
+    global DISPLAY_WIDTH, DISPLAY_HEIGHT
     global GRID_OUTER_RADIUS, CARDINAL_NORTH_OFFSET_Y, CARDINAL_SOUTH_OFFSET_Y
     global CARDINAL_DIAGONAL_INSET, SCALE_GAP_FROM_OUTER_RING, SCALE_GAP_OUTER_RING_KM
     global GRID_DASH_LEN, GRID_DASH_GAP, AIRCRAFT_ICON_RADIUS, AIRCRAFT_LABEL_GAP
@@ -62,9 +68,13 @@ def _apply_framebuffer_side(side: int) -> None:
     global FONT_SCALE_LABEL, TAG_ROW_TUCK, TAG_ROW_STEP_MAIN_MIN, TAG_ROW_STEP_SUB_MIN
 
     SIZE = side
+    if display_width is not None:
+        DISPLAY_WIDTH = int(display_width)
+    if display_height is not None:
+        DISPLAY_HEIGHT = int(display_height)
     SCALE = SIZE / REF_SIZE
-    CENTER_X = SIZE // 2
-    CENTER_Y = SIZE // 2
+    CENTER_X = DISPLAY_WIDTH // 2
+    CENTER_Y = DISPLAY_HEIGHT // 2
     # Thin rim so sweep/tags are not clipped by the physical round bezel.
     BEZEL_INSET = max(2, s(3))
     VISIBLE_RADIUS = SIZE // 2 - BEZEL_INSET
@@ -106,20 +116,48 @@ def _apply_framebuffer_side(side: int) -> None:
     TAG_ROW_STEP_SUB_MIN = tag_s(8)
 
 
+def set_framebuffer_size(width: int, height: int) -> None:
+    """Match the logical layout to a physical display.
+
+    ``SIZE`` remains the radar diameter (the smaller display dimension), while
+    the draw buffer may be rectangular. This keeps the radar circular and
+    centered while allowing the surrounding background/UI to use the full
+    panel.
+    """
+    width, height = int(width), int(height)
+    side = min(width, height)
+    if side < 100 or width < 100 or height < 100:
+        raise ValueError(f"framebuffer too small: {width}x{height}")
+    if width == DISPLAY_WIDTH and height == DISPLAY_HEIGHT and side == SIZE:
+        return
+    _apply_framebuffer_side(side, width, height)
+    try:
+        from display.round_touch import draw
+        draw.invalidate_bezel_cache()
+    except ImportError:
+        pass
+
+
 def set_framebuffer_side(side: int) -> None:
-    """Match layout to the physical display (call after pygame set_mode)."""
+    """Backward-compatible square layout setter."""
+
     side = int(side)
     if side < 100:
         raise ValueError(f"framebuffer side too small: {side}")
     if side == SIZE:
         return
-    _apply_framebuffer_side(side)
+    _apply_framebuffer_side(side, side, side)
     try:
         from display.round_touch import draw
 
         draw.invalidate_bezel_cache()
     except ImportError:
         pass
+
+
+def frame_size() -> tuple[int, int]:
+    """Return the full physical draw-buffer dimensions."""
+    return DISPLAY_WIDTH, DISPLAY_HEIGHT
 
 
 def set_tag_font_scale(value: float) -> None:
@@ -133,7 +171,21 @@ def set_tag_font_scale(value: float) -> None:
     _apply_framebuffer_side(SIZE)
 
 
-_apply_framebuffer_side(square_framebuffer_side())
+try:
+    from config import DISPLAY_WIDTH as _CONFIG_DISPLAY_WIDTH, DISPLAY_HEIGHT as _CONFIG_DISPLAY_HEIGHT
+except ImportError:
+    _CONFIG_DISPLAY_WIDTH = square_framebuffer_side()
+    _CONFIG_DISPLAY_HEIGHT = square_framebuffer_side()
+
+# Initialize the logical frame with the real rectangular panel dimensions.
+# Previously the rectangular 320x480 display was temporarily initialized as
+# 320x320 and only corrected after SDL startup, which allowed radar caches to
+# be created with the wrong height.
+_apply_framebuffer_side(
+    min(int(_CONFIG_DISPLAY_WIDTH), int(_CONFIG_DISPLAY_HEIGHT)),
+    int(_CONFIG_DISPLAY_WIDTH),
+    int(_CONFIG_DISPLAY_HEIGHT),
+)
 
 # Colors (FlightScnr radar_theme.h)
 BG = (2, 15, 3)

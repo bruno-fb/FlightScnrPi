@@ -532,7 +532,7 @@ def _normalize_display_rotation(deg) -> int:
     try:
         value = int(deg) % 360
     except (TypeError, ValueError):
-        return 90
+        return 0
     if value not in (0, 90, 180, 270):
         value = round(value / 90) * 90 % 360
     return value
@@ -544,7 +544,7 @@ def _env_display_rotation() -> int:
 
         return _normalize_display_rotation(DISPLAY_ROTATION)
     except ImportError:
-        return _normalize_display_rotation(os.environ.get("DISPLAY_ROTATION", "90"))
+        return _normalize_display_rotation(os.environ.get("DISPLAY_ROTATION", "0"))
 
 
 def _snap_min_height(value) -> int:
@@ -938,7 +938,7 @@ def _load():
         migrated = True
     else:
         state["display_rotation"] = _normalize_display_rotation(
-            state.get("display_rotation", 90)
+            state.get("display_rotation", _env_display_rotation())
         )
     if "show_wildfires" not in data:
         state["show_wildfires"] = _default_show_wildfires()
@@ -1320,7 +1320,7 @@ def _settings_snapshot(state: dict) -> tuple:
         state.get("map_style"),
         state.get("vfr_map_opacity"),
         state.get("seamap_opacity"),
-        _normalize_display_rotation(state.get("display_rotation", 90)),
+        _normalize_display_rotation(state.get("display_rotation", _env_display_rotation())),
         # ATC is edited from the web portal in a separate process — include it
         # so disk changes retune the device UI without an explicit reload flag.
         bool(state.get("atc_enabled", False)),
@@ -2586,7 +2586,7 @@ def scale_label() -> str:
 
 
 def display_rotation() -> int:
-    return _normalize_display_rotation(_state.get("display_rotation", 90))
+    return _normalize_display_rotation(_state.get("display_rotation", _env_display_rotation()))
 
 
 def set_display_rotation(degrees) -> int:

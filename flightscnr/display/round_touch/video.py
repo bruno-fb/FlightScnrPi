@@ -176,6 +176,6 @@ def theme_size() -> tuple[int, int]:
     try:
         from display.round_touch import theme
 
-        return (theme.SIZE, theme.SIZE)
+        return theme.frame_size()
     except Exception:
         return (720, 720)

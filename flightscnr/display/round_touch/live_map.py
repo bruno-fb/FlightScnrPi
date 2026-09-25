@@ -638,22 +638,16 @@ def blit_live_tracking_map(
     radius_km: float,
     flight: dict | None = None,
 ) -> None:
-    """Full-panel draw for the round display — fills the visible circle,
-    same footprint as the radar screen (theme.CENTER_X/Y, VISIBLE_RADIUS)."""
-    side = theme.VISIBLE_RADIUS * 2
+    """Draw live tracking across the entire physical panel.
+
+    The radar remains a centered circle, but live tracking is intentionally a
+    full-screen map so there is no black circular bezel or unused side area.
+    """
+    width, height = theme.frame_size()
     map_surf = render_live_tracking_map(
         lat=lat, lon=lon, heading=heading, radius_km=radius_km,
-        width=side, height=side, flight=flight,
+        width=width, height=height, flight=flight,
     )
     if map_surf is None:
         return
-    rect = map_surf.get_rect(center=(theme.CENTER_X, theme.CENTER_Y))
-    # Circular clip so a square basemap composite doesn't show square
-    # corners past the round bezel — same mask technique as map_bg's
-    # radar basemap (_apply_circle_mask), applied here directly since this
-    # is a one-shot blit rather than a cached full-screen background.
-    mask = pygame.Surface((side, side), pygame.SRCALPHA)
-    pygame.draw.circle(mask, (255, 255, 255, 255), (side // 2, side // 2), side // 2)
-    clipped = map_surf.copy()
-    clipped.blit(mask, (0, 0), special_flags=pygame.BLEND_RGBA_MULT)
-    surface.blit(clipped, rect)
+    surface.blit(map_surf, (0, 0))

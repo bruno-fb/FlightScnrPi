@@ -860,24 +860,17 @@ def _style_for_radar(surface: pygame.Surface, style: str | None = None) -> pygam
     return _style_osm(surface)
 
 
-def _apply_circle_mask(surface: pygame.Surface) -> pygame.Surface:
-    w, h = surface.get_size()
-    cx = cy = w // 2
-    radius = min(cx, cy)
-    masked = pygame.Surface((w, h), pygame.SRCALPHA)
-    masked.blit(_as_display_surface(surface), (0, 0))
-    mask = pygame.Surface((w, h), pygame.SRCALPHA)
-    pygame.draw.circle(mask, (255, 255, 255, 255), (cx, cy), radius)
-    masked.blit(mask, (0, 0), special_flags=pygame.BLEND_RGBA_MULT)
-    return masked
-
-
 def _build_flat_black_background() -> pygame.Surface:
-    """Solid black circle — same diameter as tile composites so pan coverage matches."""
-    diameter = theme.VISIBLE_RADIUS * 2 + TILE_SIZE
-    canvas = pygame.Surface((diameter, diameter))
+    """Build a full-panel black background for rectangular displays.
+
+    The radar remains circular, but its surrounding panel must not be masked to
+    that circle.  A full-frame surface also keeps the live 320x480 portrait
+    panel free of the old black circular bezel.
+    """
+    width, height = theme.frame_size()
+    canvas = pygame.Surface((width, height))
     canvas.fill(FLAT_BLACK)
-    return _apply_circle_mask(canvas)
+    return canvas
 
 
 def _scalable(tile: pygame.Surface) -> pygame.Surface:
@@ -920,7 +913,13 @@ def _build_background(scale_index: int, style: str | None = None) -> pygame.Surf
     zoom = _zoom_for_scale(home_lat, px_per_km, provider)
     render_scale = _basemap_render_scale(home_lat, scale_index, zoom, provider)
 
-    span_km = theme.VISIBLE_RADIUS / px_per_km
+    # The radar uses the smaller dimension as its circular diameter.  The map
+    # behind it must instead cover the whole rectangular panel.  For 320x480
+    # that means covering a 240px vertical half-span while keeping the radar
+    # center exactly at (160, 240).
+    frame_width, frame_height = theme.frame_size()
+    background_half_extent = max(frame_width, frame_height) / 2.0
+    span_km = background_half_extent / px_per_km
     lat_delta = span_km / 110.574
     cos_lat = max(0.01, math.cos(math.radians(home_lat)))
     lon_delta = span_km / (111.320 * cos_lat)
@@ -930,7 +929,10 @@ def _build_background(scale_index: int, style: str | None = None) -> pygame.Surf
     y_min = _lat_to_tile_y(home_lat + lat_delta, zoom) - 1
     y_max = _lat_to_tile_y(home_lat - lat_delta, zoom) + 1
 
-    diameter = theme.VISIBLE_RADIUS * 2 + TILE_SIZE
+    # Use a square tile canvas large enough to cover the entire rectangular
+    # panel after it is centered on the physical display.  The square is only
+    # an off-screen map cache; the final blit is centered at theme.CENTER_X/Y.
+    diameter = int(max(frame_width, frame_height)) + TILE_SIZE
     center = diameter // 2
     home_px, home_py = _mercator_pixel(home_lat, home_lon, zoom)
 

@@ -241,8 +241,8 @@ def _take_build_surface() -> pygame.Surface:
     global _layer_spare
     build = _layer_spare
     _layer_spare = None
-    if build is None or build.get_size() != (theme.SIZE, theme.SIZE):
-        return pygame.Surface((theme.SIZE, theme.SIZE))
+    if build is None or build.get_size() != theme.frame_size():
+        return pygame.Surface(theme.frame_size())
     return build
 
 
@@ -263,13 +263,13 @@ def _publish_frame_layer(build: pygame.Surface, key, *, rim_baked: bool = False)
     _rim_baked_in_layer = bool(rim_baked)
     if (
         _layer_cooling is not None
-        and _layer_cooling.get_size() == (theme.SIZE, theme.SIZE)
+        and _layer_cooling.get_size() == theme.frame_size()
         and _layer_spare is None
     ):
         _layer_spare = _layer_cooling
     _layer_cooling = (
         old
-        if old is not None and old.get_size() == (theme.SIZE, theme.SIZE)
+        if old is not None and old.get_size() == theme.frame_size()
         else None
     )
     return build
@@ -347,7 +347,7 @@ def prewarm_frame_layer(flights) -> None:
         # Read the published backdrop only; rebuilds of it stay on the main thread.
         backdrop = _backdrop
         backdrop_gen = _backdrop_gen
-        if backdrop is None or backdrop.get_size() != (theme.SIZE, theme.SIZE):
+        if backdrop is None or backdrop.get_size() != theme.frame_size():
             return
         build = _take_build_surface()
 
@@ -361,7 +361,7 @@ def prewarm_frame_layer(flights) -> None:
     with _layer_lock:
         # Backdrop swapped under us (zoom/theme): drop this build; next due wins.
         if backdrop is not _backdrop or backdrop_gen != _backdrop_gen:
-            if _layer_spare is None and build.get_size() == (theme.SIZE, theme.SIZE):
+            if _layer_spare is None and build.get_size() == theme.frame_size():
                 _layer_spare = build
             return
         _publish_frame_layer(build, (theme.SIZE, backdrop_gen), rim_baked=rim_baked)
@@ -398,6 +398,7 @@ def _backdrop_cache_key(*, pan_mode: bool, calibrate: bool):
     # Use stable content tokens — never id(get_background()), because map_bg
     # used to re-convert_alpha every call and churn surface ids every frame.
     return (
+        theme.frame_size(),
         theme.SIZE,
         scale.active_index(),
         facing,
@@ -426,11 +427,11 @@ def _ensure_backdrop(*, calibrate: bool, pan_mode: bool, pan_offset) -> pygame.S
     key = _backdrop_cache_key(pan_mode=pan_mode, calibrate=calibrate)
     if key is None:
         return None
-    if _backdrop is not None and _backdrop_key == key and _backdrop.get_size() == (theme.SIZE, theme.SIZE):
+    if _backdrop is not None and _backdrop_key == key and _backdrop.get_size() == theme.frame_size():
         return _backdrop
 
     _rebuild_counts["backdrop"] += 1
-    surf = pygame.Surface((theme.SIZE, theme.SIZE))
+    surf = pygame.Surface(theme.frame_size())
     draw.fill_background(surf)
     map_bg.draw_background(surf, pan_offset=None)
     rainviewer_overlay.draw_overlay(surf, pan_offset=None)
@@ -448,7 +449,7 @@ def _frame_layer_fresh(key) -> bool:
     return (
         _frame_layer is not None
         and _frame_layer_key == key
-        and _frame_layer.get_size() == (theme.SIZE, theme.SIZE)
+        and _frame_layer.get_size() == theme.frame_size()
         and (time.time() - _frame_layer_at) < _layer_ttl_s()
     )
 
@@ -471,14 +472,14 @@ def _ensure_frame_layer(backdrop, flights, offset) -> pygame.Surface | None:
 
     # Worker may already be rebuilding; keep presenting the last good layer.
     if not _layer_lock.acquire(blocking=False):
-        if _frame_layer is not None and _frame_layer.get_size() == (theme.SIZE, theme.SIZE):
+        if _frame_layer is not None and _frame_layer.get_size() == theme.frame_size():
             return _frame_layer
         _layer_lock.acquire()  # first frame ever: wait for the worker
     try:
         if _frame_layer_fresh(key):
             return _frame_layer
         # Prefer a slightly stale layer over hitching the sweep on this thread.
-        if _frame_layer is not None and _frame_layer.get_size() == (theme.SIZE, theme.SIZE):
+        if _frame_layer is not None and _frame_layer.get_size() == theme.frame_size():
             return _frame_layer
         _rebuild_counts["layer"] += 1
         # Never paint into the published surface — present/rim-flash may still
