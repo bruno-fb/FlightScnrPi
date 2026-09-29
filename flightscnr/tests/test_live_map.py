@@ -18,6 +18,7 @@ from __future__ import annotations
 import os
 import sys
 import unittest
+from unittest.mock import patch
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -233,6 +234,42 @@ class TestAircraftAlwaysCentered(unittest.TestCase):
                 self.assertEqual(surf.get_size(), (w, h))
         finally:
             live_map.invalidate()
+
+    def test_portrait_live_map_fills_frame_and_centers_aircraft(self):
+        import pygame
+        from display.round_touch import live_map
+
+        width, height = 320, 480
+        lat, lon = 53.6304, 9.9882
+        bounds = live_map._bounds_for_center(
+            lat, lon, 20.0 * live_map._OVERSCAN
+        )
+        viewport = {
+            "bounds": bounds,
+            "raster": pygame.Surface((width * 2, height * 2)),
+            "raster_w": width * 2,
+            "raster_h": height * 2,
+        }
+        with patch.object(live_map, "_request_live_viewport", return_value=viewport), \
+             patch(
+                 "display.round_touch.follow_overlays.draw_on_follow_panel"
+             ), patch(
+                 "display.round_touch.aircraft_type_icons.draw_icon",
+                 return_value=True,
+             ) as draw_icon:
+            surface = live_map.render_live_tracking_map(
+                lat=lat,
+                lon=lon,
+                heading=90.0,
+                radius_km=20.0,
+                width=width,
+                height=height,
+                flight={"callsign": "TEST1", "plane": "A320"},
+            )
+
+        self.assertIsNotNone(surface)
+        self.assertEqual(surface.get_size(), (width, height))
+        self.assertEqual(draw_icon.call_args.args[2], (160, 240))
 
 
 class TestFollowProjection(unittest.TestCase):

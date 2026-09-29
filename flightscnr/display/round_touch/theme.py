@@ -12,14 +12,6 @@
 REF_SIZE = 390
 
 try:
-    from config import square_framebuffer_side
-except ImportError:
-
-    def square_framebuffer_side() -> int:
-        return 720
-
-
-try:
     from config import RADAR_TAG_FONT_SCALE as _CONFIG_TAG_FONT_SCALE
 except ImportError:
     _CONFIG_TAG_FONT_SCALE = 1.0
@@ -49,8 +41,8 @@ def tag_s(value: float) -> int:
     return max(1, int(round(value * SCALE * TAG_FONT_SCALE)))
 
 
-DISPLAY_WIDTH = 720
-DISPLAY_HEIGHT = 720
+DISPLAY_WIDTH = 320
+DISPLAY_HEIGHT = 480
 
 
 def _apply_framebuffer_side(side: int, display_width: int | None = None, display_height: int | None = None) -> None:
@@ -174,8 +166,8 @@ def set_tag_font_scale(value: float) -> None:
 try:
     from config import DISPLAY_WIDTH as _CONFIG_DISPLAY_WIDTH, DISPLAY_HEIGHT as _CONFIG_DISPLAY_HEIGHT
 except ImportError:
-    _CONFIG_DISPLAY_WIDTH = square_framebuffer_side()
-    _CONFIG_DISPLAY_HEIGHT = square_framebuffer_side()
+    _CONFIG_DISPLAY_WIDTH = 320
+    _CONFIG_DISPLAY_HEIGHT = 480
 
 # Initialize the logical frame with the real rectangular panel dimensions.
 # Previously the rectangular 320x480 display was temporarily initialized as

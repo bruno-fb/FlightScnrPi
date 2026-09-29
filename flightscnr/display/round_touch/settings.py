@@ -409,7 +409,7 @@ _defaults = {
     # 100 keeps the chart as painted; lower fades it toward parchment, like VFR.
     "seamap_opacity": 100,
     # Clockwise UI + touch mapping: 0, 90, 180, 270 (physical panel mount).
-    "display_rotation": 90,
+    "display_rotation": 0,
     # ATC audio (LiveATC via mpv) — non-secret prefs.
     "atc_enabled": False,
     "atc_airport": "",

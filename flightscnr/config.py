@@ -374,9 +374,9 @@ def web_portal_url(hostname: str = "") -> str:
 
 
 # --- Display & units ---
-DISPLAY_WIDTH = int(os.environ.get("DISPLAY_WIDTH", "720"))
-DISPLAY_HEIGHT = int(os.environ.get("DISPLAY_HEIGHT", "720"))
-DISPLAY_ROTATION = int(os.environ.get("DISPLAY_ROTATION", "90")) % 360
+DISPLAY_WIDTH = int(os.environ.get("DISPLAY_WIDTH", "320"))
+DISPLAY_HEIGHT = int(os.environ.get("DISPLAY_HEIGHT", "480"))
+DISPLAY_ROTATION = int(os.environ.get("DISPLAY_ROTATION", "0")) % 360
 if DISPLAY_ROTATION not in (0, 90, 180, 270):
     DISPLAY_ROTATION = round(DISPLAY_ROTATION / 90) * 90 % 360
 DISPLAY_FULLSCREEN = _bool(os.environ.get("DISPLAY_FULLSCREEN", "True"))
@@ -465,8 +465,8 @@ def square_framebuffer_side() -> int:
     else:
         side = min(DISPLAY_WIDTH, DISPLAY_HEIGHT)
     logger.warning(
-        "DISPLAY_WIDTH (%d) != DISPLAY_HEIGHT (%d). Set both to your panel resolution "
-        "(e.g. 720×720) in /etc/flightscnr.env. Provisional framebuffer: %d×%d.",
+        "DISPLAY_WIDTH (%d) != DISPLAY_HEIGHT (%d). The display module is using "
+        "a provisional square framebuffer: %d×%d.",
         DISPLAY_WIDTH,
         DISPLAY_HEIGHT,
         side,
