@@ -178,4 +178,4 @@ def theme_size() -> tuple[int, int]:
 
         return theme.frame_size()
     except Exception:
-        return (720, 720)
+        return (320, 480)

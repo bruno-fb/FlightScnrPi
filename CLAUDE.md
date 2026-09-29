@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 # Claude / agent notes — FlightScnr_Pi
 
-FlightScnr Pi is a flight and marine radar for a Raspberry Pi with a round 4″ 720×720 touch display (rendered at 1080×1080). It has a pygame kiosk UI and a Flask web portal for setup.
+FlightScnr Pi is a flight and marine radar for Raspberry Pi touch displays. It defaults to a 320×480 portrait panel and also supports the round 4″ 720×720 display. It has a pygame kiosk UI and a Flask web portal for setup.
 
 ## License rules (mandatory)
 

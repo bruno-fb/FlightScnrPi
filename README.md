@@ -1,8 +1,8 @@
 # FlightScnr Pi
 
-A round **4″ touch display** flight and marine tracker for Raspberry Pi. Dark radar UI, animated sweep, map tiles, gesture navigation, LiveATC audio, and a local **web portal** for setup — no SSH required for day-to-day use. Modeled after [FlightScnr](https://github.com/yashmulgaonkar/FlightScnr).
+A flight and marine tracker for Raspberry Pi touch displays. Dark radar UI, animated sweep, map tiles, gesture navigation, LiveATC audio, and a local **web portal** for setup — no SSH required for day-to-day use. Modeled after [FlightScnr](https://github.com/yashmulgaonkar/FlightScnr).
 
-**Display:** [Waveshare 4inch DSI LCD (C)](https://www.waveshare.com/4inch-dsi-lcd-c.htm?&aff_id=108718) (720×720) and the newer [4-DSI-TOUCH-C](https://www.waveshare.com/4-dsi-touch-c.htm?&aff_id=108718) (same resolution; different bezel, fits the same housing). The new panel needs a different firmware overlay or it stays black — see [Quick install](#quick-install) and [#207](https://github.com/yashmulgaonkar/FlightScnr_Pi/issues/207). On **4-DSI-TOUCH-C**, the display **power cable is mandatory** (do not rely on DSI power alone).
+**Display:** Defaults to a native **320×480 portrait** framebuffer, with the circular radar centered and the surrounding UI using the full screen. The original [Waveshare 4inch DSI LCD (C)](https://www.waveshare.com/4inch-dsi-lcd-c.htm?&aff_id=108718) (720×720) and the newer [4-DSI-TOUCH-C](https://www.waveshare.com/4-dsi-touch-c.htm?&aff_id=108718) (same resolution; different bezel, fits the same housing) remain supported by setting `DISPLAY_WIDTH=720`, `DISPLAY_HEIGHT=720`, and the needed `DISPLAY_ROTATION`. The new panel needs a different firmware overlay or it stays black — see [Quick install](#quick-install) and [#207](https://github.com/yashmulgaonkar/FlightScnr_Pi/issues/207). On **4-DSI-TOUCH-C**, the display **power cable is mandatory** (do not rely on DSI power alone).
 
 ![FlightScnr Pi on a round display](docs/images/flightscnrpi.jpg)
 
@@ -23,7 +23,7 @@ Current release: **2026.8.21.2** on `main`.
 
 ### Screens
 
-Radar home, flight detail, **tracked flight** with route map, **Follow / Live** map, and clock / weather — swipe between them on the 720×720 round touch display. **Swipe right** on radar opens Tracked (when a track is active), then again for Follow / Live. **Swipe left** cycles Home and saved favorite locations.
+Radar home, flight detail, **tracked flight** with route map, **Follow / Live** map, and clock / weather — swipe between them on the touch display. **Swipe right** on radar opens Tracked (when a track is active), then again for Follow / Live. **Swipe left** cycles Home and saved favorite locations.
 
 <table>
 <tr>

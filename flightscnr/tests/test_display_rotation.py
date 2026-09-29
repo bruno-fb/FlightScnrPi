@@ -57,6 +57,37 @@ class TestDisplayRotation(unittest.TestCase):
         self.assertEqual(settings.cycle_display_rotation(), 270)
         self.assertEqual(settings.cycle_display_rotation(), 0)
 
+    def test_portrait_framebuffer_centers_the_radar_on_the_panel(self):
+        from display.round_touch import theme
+
+        previous_size = theme.frame_size()
+        try:
+            theme.set_framebuffer_size(320, 480)
+            self.assertEqual(theme.frame_size(), (320, 480))
+            self.assertEqual((theme.CENTER_X, theme.CENTER_Y), (160, 240))
+            self.assertEqual(theme.VISIBLE_RADIUS, 158)
+        finally:
+            theme.set_framebuffer_size(*previous_size)
+
+    def test_portrait_frame_presents_edge_to_edge_without_bezel_mask(self):
+        import pygame
+        from display.round_touch import draw, rotation, theme
+
+        previous_size = theme.frame_size()
+        try:
+            theme.set_framebuffer_size(320, 480)
+            frame = pygame.Surface((320, 480))
+            display = pygame.Surface((320, 480))
+            frame.fill((20, 80, 140))
+            display.fill((0, 0, 0))
+            with mock.patch.object(rotation, "rotation_degrees", return_value=0):
+                rotation.present(display, frame)
+            draw.apply_round_bezel(display)
+            for point in ((0, 0), (319, 0), (0, 479), (319, 479), (160, 240)):
+                self.assertEqual(display.get_at(point)[:3], (20, 80, 140))
+        finally:
+            theme.set_framebuffer_size(*previous_size)
+
 
 if __name__ == "__main__":
     unittest.main()
